@@ -1,0 +1,7 @@
+__pycache__
+_dev
+
+modules/__pycache__
+modules/core/__pycache__
+modules/extras/__pycache__
+modules/utils/__pycache__

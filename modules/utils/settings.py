@@ -6,7 +6,7 @@ terminal = 'alacritty'
 browser = 'firefox'
 file_manager = 'thunar'
 font = 'SauceCodePro Nerd Font Medium'
-wallpaper = '~/wallpapers/wp1.png'
+wallpaper = '~/wallpapers/wp2.png'
 
 # Weather
 location = {'Mexico': 'Mexico'}
@@ -17,4 +17,4 @@ net = 'wlp2s0'
 backlight = 'radeon_bl0'
 
 # Color Schemes
-colorscheme = 'material_ocean'
+colorscheme = 'gruvbox_material'

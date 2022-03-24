@@ -307,7 +307,7 @@ def spotify(bg, fg, icon_fg):
             **base(bg, fg),
             name = 'spotify',
             objname = 'org.mpris.MediaPlayer2.spotify',
-            display_metadata = ['xesam:title', 'xesam:artist'],
+            display_metadata = ['xesam:title'],
             max_chars = 41,
             padding = 0,
             scroll_chars = None,

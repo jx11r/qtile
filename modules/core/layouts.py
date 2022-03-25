@@ -41,9 +41,10 @@ def config(layout_name):
 
 layouts = [
     # layout.Max(),
-    layout.Bsp(**config('bsp')),
+    # layout.Bsp(**config('bsp')),
     layout.MonadTall(**config('xmonad')),
     layout.MonadWide(**config('xmonad')),
+    layout.MonadThreeCol(**config('xmonad')),
     layout.Stack(**config('stack')),
 ]
 

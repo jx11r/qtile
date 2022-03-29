@@ -5,7 +5,7 @@ from modules import *
 
 # Config
 dgroups_key_binder = None
-dgroups_app_rules = []
+dgroups_app_rules = [] # type: list
 follow_mouse_focus = True
 bring_front_click = False
 cursor_warp = False

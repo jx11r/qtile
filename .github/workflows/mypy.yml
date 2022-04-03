@@ -1,16 +1,19 @@
-name: Mypy
+name: mypy
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Qtile
+    name: Qtile Health
+    strategy:
+      matrix:
+        python-version: ['3.10']
     steps:
       - uses: actions/checkout@v1
-      - name: Set up python 3.10.X
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v1
         with:
-          python-version: 3.10.4
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
           pip install mypy qtile

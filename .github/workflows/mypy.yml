@@ -13,7 +13,7 @@ jobs:
           python-version: 3.10.2
       - name: Install dependencies
         run: |
-          pip install mypy
+          pip install mypy qtile
       - name: mypy
         run: |
           mypy config.py

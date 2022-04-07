@@ -3,7 +3,7 @@
 from libqtile.config import Click, Drag
 from libqtile.lazy import lazy
 
-from ..utils.settings import mod
+from utils.settings import mod
 
 mouse = [
     # Left click

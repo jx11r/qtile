@@ -8,7 +8,7 @@ from .settings import colorscheme
 # Directory
 color_file = path.join(
     path.expanduser('~'),
-    '.config/qtile/colors/',
+    '.config/qtile/utils/colors/',
     colorscheme + '.json'
 )
 

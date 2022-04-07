@@ -3,8 +3,8 @@
 from libqtile.config import Key
 from libqtile.lazy import lazy
 
-from ..utils.settings import browser, file_manager
-from ..utils.settings import mod, terminal
+from utils.settings import browser, file_manager
+from utils.settings import mod, terminal
 
 keys = [
     # Switch between windows [xmonad & bsp]

@@ -17,13 +17,11 @@ groups = [
         layout = 'stack',
         matches = [Match(wm_class = 'firefox')],
     ),
-
     Group('w',
         label = label,
         layout = 'stack',
         matches = [Match(wm_class = 'spotify')],
     ),
-
     Group('e',
         label = label,
         layout = 'stack',

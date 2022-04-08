@@ -2,8 +2,6 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from typing import Any
-
 # Apps
 browser = 'firefox'
 file_manager = 'thunar'
@@ -71,4 +69,4 @@ for my_keys in [
     ([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
     ([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
     ([], 'XF86AudioNext', lazy.spawn('playerctl next')),
-]: keys.append(Key(*my_keys))
+]: keys.append(Key(*my_keys)) # type: ignore

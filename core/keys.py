@@ -7,10 +7,9 @@ browser = 'firefox'
 file_manager = 'thunar'
 terminal = guess_terminal()
 
+# Key bindings
 alt = 'mod1'
 mod = 'mod4'
-
-# Key bindings
 keys = []
 
 for my_keys in [

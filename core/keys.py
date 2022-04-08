@@ -1,91 +1,68 @@
-# --==[ Key Bindings ]==--
-
 from libqtile.config import Key
 from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
 
-from utils.settings import browser, file_manager
-from utils.settings import mod, terminal
+browser = 'firefox'
+file_manager = 'thunar'
+terminal = guess_terminal()
+
+alt = 'mod1'
+mod = 'mod4'
 
 keys = [
-    # Switch between windows [xmonad & bsp]
+    # Switch between windows
     Key([mod], 'h', lazy.layout.left()),
     Key([mod], 'l', lazy.layout.right()),
     Key([mod], 'j', lazy.layout.down()),
     Key([mod], 'k', lazy.layout.up()),
-    
-    # Next window [xmonad]
-    Key([mod], 'space', lazy.layout.next()),
 
-    # Move windows [xmonad & bsp]
+    # Move windows between left, rigth, down and up
     Key([mod, 'shift'], 'h', lazy.layout.shuffle_left()),
     Key([mod, 'shift'], 'l', lazy.layout.shuffle_right()),
     Key([mod, 'shift'], 'j', lazy.layout.shuffle_down()),
     Key([mod, 'shift'], 'k', lazy.layout.shuffle_up()),
 
-    # Flip windows [bsp]
-    Key([mod, 'mod1'], 'h', lazy.layout.flip_left()),
-    Key([mod, 'mod1'], 'l', lazy.layout.flip_right()),
-    Key([mod, 'mod1'], 'j', lazy.layout.flip_down()),
-    Key([mod, 'mod1'], 'k', lazy.layout.flip_up()),
+    Key([mod], 'i', lazy.layout.grow()),                # Increase size
+    Key([mod], 'm', lazy.layout.shrink()),              # Decrease size
+    Key([mod], 'o', lazy.layout.maximize()),            # Maximize window
+    Key([mod], 'n', lazy.layout.normalize()),           # Restore window size
 
-    # Flip windows [xmonad]
-    Key([mod, 'shift'], 'space', lazy.layout.flip()),
+    Key([mod, 'shift'], 'space', lazy.layout.flip()),   # Switch side
+    Key([mod], 'f', lazy.window.toggle_fullscreen()),   # Toggle fullscreen
 
-    # Grow windows [bsp]
-    Key([mod, 'control'], 'h', lazy.layout.grow_left()),
-    Key([mod, 'control'], 'l', lazy.layout.grow_right()),
-    Key([mod, 'control'], 'j', lazy.layout.grow_down()),
-    Key([mod, 'control'], 'k', lazy.layout.grow_up()),
+    Key([mod], 'c', lazy.window.center()),              # Center a floating window
+    Key([mod], 'space', lazy.window.toggle_floating()), # Toggle floating
 
-    # Grow windows [xmonad]
-    Key([mod], 'i', lazy.layout.grow()),
-    Key([mod], 'm', lazy.layout.shrink()),
-    Key([mod], 'o', lazy.layout.maximize()),
+    Key([mod], 'Tab', lazy.next_layout()),              # Toggle between layouts
+    Key([mod], 'a', lazy.window.kill()),                # Kill focused window
+    Key([mod, 'control'], 'b', lazy.hide_show_bar()),   # Hide bar
 
-    # Restore size [xmonad & bsp]
-    Key([mod], 'n', lazy.layout.normalize()),
+    Key([mod, 'control'], 's', lazy.shutdown()),        # Shutdown Qtile
+    Key([mod, 'control'], 'r', lazy.restart()),         # Restart Qtile
+    Key([mod, alt], 'r', lazy.reload_config()),         # Reload the config
+    Key([mod, alt], 's', lazy.spawn('kill -9 -1')),     # Kill Xorg session
 
-    # Toggle between split and unsplit sides [bsp]
-    Key([mod, 'shift'], 'Return', lazy.layout.toggle_split()),
-
-    # Toggle between layouts
-    Key([mod], 'Tab', lazy.next_layout()),
-
-    # Kill focused window
-    Key([mod], 'w', lazy.window.kill()),
-
-    # Manage Qtile
-    Key([mod, 'control'], 'r', lazy.restart()),
-    Key([mod, 'control'], 'q', lazy.shutdown()),
-    Key([mod, 'mod1'], 'q', lazy.spawn('kill -9 -1')),
-
-    # Terminal
+    # Apps
     Key([mod], 'Return', lazy.spawn(terminal)),
-
-    # Dmenu
+    Key([mod], 'b', lazy.spawn(browser)),
+    Key([mod], 'e', lazy.spawn(file_manager)),
+ 
+    # Tools
+    Key([mod, 'shift'], 'r', lazy.spawn('rofi -show')),
+    Key([mod], 'r', lazy.spawn('rofi -show drun')),
     Key([mod], 'd', lazy.spawn('dmenu_run')),
 
-    # Menu
-    Key([mod], 'r', lazy.spawn('rofi -show drun')),
-    Key([mod, 'shift'], 'r', lazy.spawn('rofi -show')),
-
-    # Browser
-    Key([mod], 'b', lazy.spawn(browser)),
-
-    # File Manager
-    Key([mod], 'e', lazy.spawn(file_manager)),
-    
-    # Volume
-    Key([], 'XF86AudioMute', lazy.spawn('pactl set-sink-mute @DEFAULT_SINK@ toggle')),
-    Key([], 'XF86AudioLowerVolume', lazy.spawn('pulseaudio-ctl down +5%')),
-    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pulseaudio-ctl up +5%')),
-
-    # Brightness
+    # Backlight
     Key([mod], 'XF86AudioLowerVolume', lazy.spawn('brightnessctl set 5%-')),
     Key([mod], 'XF86AudioRaiseVolume', lazy.spawn('brightnessctl set +5%')),
 
-    # Player
-    Key([mod], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
-    Key([mod], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
-    Key([mod], 'XF86AudioNext', lazy.spawn('playerctl next')),
+    # Volume
+    Key([], 'XF86AudioMute', lazy.spawn('pamixer --togle-mute')),
+    Key([], 'XF86AudioLowerVolume', lazy.spawn('pamixer --decrease 5')),
+    Key([], 'XF86AudioRaiseVolume', lazy.spawn('pamixer --increase 5')),
+
+    # Music player
+    Key([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
+    Key([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
+    Key([], 'XF86AudioNext', lazy.spawn('playerctl next')),
 ]

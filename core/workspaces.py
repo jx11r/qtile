@@ -2,9 +2,8 @@ from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 from libqtile import layout
 
-from utils.settings import mod
+from core.keys import keys, mod
 from utils.colors import color
-from core.keys import keys
 
 # Layouts
 config = {

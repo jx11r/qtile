@@ -5,8 +5,7 @@ from libqtile.config import Match
 
 from utils.colors import color
 
-# ---- Tiling Window ------------------------- #
-# -------------------------------------------- #
+# ---- Tiling ---------------------------- #
 config = {
     'single_border_width': 0,
     'border_width': 0,
@@ -31,8 +30,7 @@ layouts = [
     ),
 ]
 
-# ---- Floating Window ----------------------- #
-# -------------------------------------------- #
+# ---- Floating -------------------------- #
 floating_layout = layout.Floating(
     fullscreen_border_width = 0,
     border_width = 0,
@@ -41,17 +39,23 @@ floating_layout = layout.Floating(
     
     float_rules = [
         *layout.Floating.default_float_rules,
-        Match(wm_class = 'confirmreset'),
-        Match(wm_class = 'makebranch'),
-        Match(wm_class = 'maketag'),
-        Match(wm_class = 'ssh-askpass'),
-        Match(wm_class = 'gnome-screenshot'),
-        Match(wm_class = 'Xephyr'),
-        Match(wm_class = 'lxappearance'),
-        Match(wm_class = 'thunar'),
-        Match(title = 'File Operation Progress'),
-        Match(title = 'Open File'),
-        Match(title = 'branchdialog'),
-        Match(title = 'pinentry'),
+        Match(wm_class = [
+            'confirmreset',
+            'makebranch',
+            'maketag',
+            'ssh-askpass',
+            'gnome-screenshot',
+            'Xephyr',
+            'lxappearance',
+            'xfce4-about',
+            'thunar',
+        ]),
+
+        Match(title = [
+            'File Operation Progress',
+            'Open File',
+            'branchdialog',
+            'pinentry',
+        ]),
     ],
 )

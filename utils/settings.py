@@ -1,10 +1,6 @@
 # --==[ Settings ]==--
 
 # General
-mod = 'mod4'
-terminal = 'alacritty'
-browser = 'firefox'
-file_manager = 'thunar'
 font = 'SauceCodePro Nerd Font Medium'
 wallpaper = '~/wallpapers/wp2.png'
 

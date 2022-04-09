@@ -1,4 +1,4 @@
-# --==[ Qtile Keybindings ]==--
+# --==[ Key Bindings ]==--
 
 from libqtile.config import Key
 from libqtile.lazy import lazy
@@ -73,4 +73,5 @@ for my_keys in [
     ([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
     ([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
     ([], 'XF86AudioNext', lazy.spawn('playerctl next')),
-]: keys.append(Key(*my_keys)) # type: ignore
+]:
+    keys.append(Key(*my_keys)) # type: ignore

@@ -2,8 +2,8 @@
 
 # Import modules
 from core.keys import keys
-from core.workspaces import groups
-from core.workspaces import layouts, floating_layout
+from core.groups import groups
+from core.layouts import layouts, floating_layout
 from core.screens import screens
 from core.mouse import mouse
 

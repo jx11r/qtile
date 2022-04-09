@@ -1,61 +1,14 @@
+# --==[ Groups ]==--
+
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
-from libqtile import layout
 
-from core.keys import keys, mod
-from utils.colors import color
+from .keys import keys, mod
 
-# Layouts
-config = {
-    'single_border_width': 0,
-    'border_width': 0,
-    'single_margin': 9,
-    'margin': 9,
-    'border_normal': '#00000000',
-    'border_focus': color[5],
-}
-
-layouts = [
-    layout.MonadTall(
-        **config,
-        min_ratio = 0.30,
-        max_ratio = 0.70,
-        change_ratio = 0.02,
-    ),
-
-    layout.Stack(
-        **config,
-        num_stacks = 1,
-        # border_width = 0,
-    ),
-]
-
-floating_layout = layout.Floating(
-    fullscreen_border_width = 0,
-    border_width = 0,
-    border_normal = '#00000000',
-    border_focus = color[7],
-    
-    float_rules = [
-        *layout.Floating.default_float_rules,
-        Match(wm_class = 'confirmreset'),
-        Match(wm_class = 'makebranch'),
-        Match(wm_class = 'maketag'),
-        Match(wm_class = 'ssh-askpass'),
-        Match(wm_class = 'gnome-screenshot'),
-        Match(wm_class = 'Xephyr'),
-        Match(wm_class = 'lxappearance'),
-        Match(wm_class = 'thunar'),
-        Match(title = 'File Operation Progress'),
-        Match(title = 'Open File'),
-        Match(title = 'branchdialog'),
-        Match(title = 'pinentry'),
-    ],
-)
-
-# Groups
+# Icons & Tags
 label = '●'
 
+# Workspaces
 groups = [
     Group('1',
         label = label,

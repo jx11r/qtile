@@ -42,6 +42,8 @@ for my_keys in [
     ([mod, 'control'], 's', lazy.shutdown()),
     ([mod, 'control'], 'r', lazy.restart()),
     ([mod, alt], 'r', lazy.reload_config()),
+
+    # Kill Xserver
     ([mod, alt], 's', lazy.spawn('kill -9 -1')),
 
     # ------------------------------------------------- #

@@ -5,6 +5,8 @@ from libqtile.config import Match
 
 from utils.colors import color
 
+# ---- Tiling Window ------------------------- #
+# -------------------------------------------- #
 config = {
     'single_border_width': 0,
     'border_width': 0,
@@ -29,6 +31,8 @@ layouts = [
     ),
 ]
 
+# ---- Floating Window ----------------------- #
+# -------------------------------------------- #
 floating_layout = layout.Floating(
     fullscreen_border_width = 0,
     border_width = 0,

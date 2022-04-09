@@ -1,56 +1,61 @@
+# --==[ Qtile Keybindings ]==--
+
 from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-# Apps
-browser = 'firefox'
-file_manager = 'thunar'
+keys, mod, alt = [], 'mod4', 'mod1'
 terminal = guess_terminal()
 
-# Key bindings
-alt = 'mod1'
-mod = 'mod4'
-keys = []
-
 for my_keys in [
-    # Switch between windows
+    # Switch/move between windows
     ([mod], 'h', lazy.layout.left()),
     ([mod], 'l', lazy.layout.right()),
     ([mod], 'j', lazy.layout.down()),
     ([mod], 'k', lazy.layout.up()),
 
-    # Move windows between left, rigth, down and up
     ([mod, 'shift'], 'h', lazy.layout.shuffle_left()),
     ([mod, 'shift'], 'l', lazy.layout.shuffle_right()),
     ([mod, 'shift'], 'j', lazy.layout.shuffle_down()),
     ([mod, 'shift'], 'k', lazy.layout.shuffle_up()),
 
-    ([mod], 'i', lazy.layout.grow()),                # Increase size
-    ([mod], 'm', lazy.layout.shrink()),              # Decrease size
-    ([mod], 'o', lazy.layout.maximize()),            # Maximize window
-    ([mod], 'n', lazy.layout.normalize()),           # Restore window size
+    # Increase/decrease window size
+    ([mod], 'i', lazy.layout.grow()),
+    ([mod], 'm', lazy.layout.shrink()),
 
-    ([mod, 'shift'], 'space', lazy.layout.flip()),   # Switch side
-    ([mod], 'f', lazy.window.toggle_fullscreen()),   # Toggle fullscreen
+    # Window management
+    ([mod, 'shift'], 'space', lazy.layout.flip()),
+    ([mod], 'f', lazy.window.toggle_fullscreen()),
+    ([mod], 'o', lazy.layout.maximize()),
+    ([mod], 'n', lazy.layout.normalize()),
+    ([mod], 'a', lazy.window.kill()),
 
-    ([mod], 'c', lazy.window.center()),              # Center a floating window
-    ([mod], 'space', lazy.window.toggle_floating()), # Toggle floating
+    # Floating window management
+    ([mod], 'space', lazy.window.toggle_floating()),
+    ([mod], 'c', lazy.window.center()),
 
-    ([mod], 'Tab', lazy.next_layout()),              # Toggle between layouts
-    ([mod], 'a', lazy.window.kill()),                # Kill focused window
-    ([mod, 'control'], 'b', lazy.hide_show_bar()),   # Hide bar
+    # Toggle between layouts
+    ([mod], 'Tab', lazy.next_layout()),
 
-    ([mod, 'control'], 's', lazy.shutdown()),        # Shutdown Qtile
-    ([mod, 'control'], 'r', lazy.restart()),         # Restart Qtile
-    ([mod, alt], 'r', lazy.reload_config()),         # Reload the config
-    ([mod, alt], 's', lazy.spawn('kill -9 -1')),     # Kill Xorg session
+    # Qtile management
+    ([mod, 'control'], 'b', lazy.hide_show_bar()),
+    ([mod, 'control'], 's', lazy.shutdown()),
+    ([mod, 'control'], 'r', lazy.restart()),
+    ([mod, alt], 'r', lazy.reload_config()),
+    ([mod, alt], 's', lazy.spawn('kill -9 -1')),
 
-    # Apps
+    # ------------------------------------------------- #
+
+    # Terminal
     ([mod], 'Return', lazy.spawn(terminal)),
-    ([mod], 'b', lazy.spawn(browser)),
-    ([mod], 'e', lazy.spawn(file_manager)),
 
-    # Tools
+    # Browser
+    ([mod], 'b', lazy.spawn('firefox')),
+
+    # File Manager
+    ([mod], 'e', lazy.spawn('thunar')),
+
+    # Apps Menu
     ([mod, 'shift'], 'r', lazy.spawn('rofi -show')),
     ([mod], 'r', lazy.spawn('rofi -show drun')),
     ([mod], 'd', lazy.spawn('dmenu_run')),
@@ -64,7 +69,7 @@ for my_keys in [
     ([], 'XF86AudioLowerVolume', lazy.spawn('pamixer --decrease 5')),
     ([], 'XF86AudioRaiseVolume', lazy.spawn('pamixer --increase 5')),
 
-    # Music player
+    # Player
     ([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
     ([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
     ([], 'XF86AudioNext', lazy.spawn('playerctl next')),

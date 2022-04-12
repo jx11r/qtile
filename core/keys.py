@@ -4,10 +4,10 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-mod, alt = 'mod4', 'mod1'
+keys, mod, alt = [], 'mod4', 'mod1'
 terminal = guess_terminal()
 
-keys = [Key(*i) for i in [ # type: ignore
+for my_keys in [
     # Switch/move between windows
     ([mod], 'h', lazy.layout.left()),
     ([mod], 'l', lazy.layout.right()),
@@ -75,4 +75,5 @@ keys = [Key(*i) for i in [ # type: ignore
     ([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
     ([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
     ([], 'XF86AudioNext', lazy.spawn('playerctl next')),
-]]
+]:
+    keys.append(Key(*my_keys)) # type: ignore

@@ -7,7 +7,7 @@ from libqtile.utils import guess_terminal
 mod, alt = 'mod4', 'mod1'
 terminal = guess_terminal()
 
-keys = [Key(*i) for i in [
+keys = [Key(*i) for i in [ # type: ignore
     # Switch/move between windows
     ([mod], 'h', lazy.layout.left()),
     ([mod], 'l', lazy.layout.right()),

@@ -195,7 +195,7 @@ def groups(bg):
             margin_y = 3,
             rounded = True,
             hide_unused = False,
-            disable_drag = True,
+            disable_drag = False,
             use_mouse_wheel = False,
             active = color[4],
             inactive = color[5],

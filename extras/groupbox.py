@@ -30,6 +30,7 @@ class _GroupBase(groupbox._GroupBase):
         block=False,
         line=False,
         highlighted=False,
+        inverted=False,
     ):
         self.layout.text = self.fmt.format(text)
         self.layout.font_family = self.font
@@ -42,6 +43,8 @@ class _GroupBase(groupbox._GroupBase):
                 (self.bar.height - self.layout.height - self.borderwidth) / 2,
                 (self.bar.height - self.layout.height + self.borderwidth) / 2,
             ]
+            if highlighted:
+                inverted = False
         else:
             pad_y = self.padding_y
 
@@ -65,16 +68,38 @@ class _GroupBase(groupbox._GroupBase):
         if block and bordercolor is not None:
             framed.draw_fill(offset, y, rounded)
         elif line:
-            framed.draw_line(offset, y, highlighted)
+            framed.draw_line(offset, y, highlighted, inverted)
         else:
             framed.draw(offset, y, rounded)
 
 class GroupBox(_GroupBase, groupbox.GroupBox):
+    defaults = [
+        ("invert", False, "Invert line position when 'line' highlight method isn't highlighted."),
+        (
+            "rainbow",
+            False,
+            "If set to True, 'colors' will be used instead of 'this_(current)_screen_border'."
+        ),
+        (
+            "colors",
+            False,
+            "Receive a list of strings."
+            "Allows each tag to be an independent/unique color when selected, this overrides 'active'."
+        ),
+    ]
+
     def __init__(self, **config):
         super().__init__(**config)
+        self.add_defaults(GroupBox.defaults)
 
     def draw(self):
         self.drawer.clear(self.background or self.bar.background)
+
+        def color(index: int) -> str:
+            try:
+                return self.colors[index]
+            except IndexError:
+                return "FFFFFF"
 
         offset = self.margin_x
         for i, g in enumerate(self.groups):
@@ -87,7 +112,7 @@ class GroupBox(_GroupBase, groupbox.GroupBox):
             if self.group_has_urgent(g) and self.urgent_alert_method == "text":
                 text_color = self.urgent_text
             elif g.windows:
-                text_color = self.active
+                text_color = color(i) if self.colors else self.active
             else:
                 text_color = self.inactive
 
@@ -98,17 +123,33 @@ class GroupBox(_GroupBase, groupbox.GroupBox):
                 else:
                     if self.block_highlight_text_color:
                         text_color = self.block_highlight_text_color
+
                     if self.bar.screen.group.name == g.name:
                         if self.qtile.current_screen == self.bar.screen:
-                            border = self.this_current_screen_border
+                            if self.rainbow and self.colors:
+                                border = color(i) if g.windows else self.inactive
+                            else:
+                                border = self.this_current_screen_border
                             to_highlight = True
                         else:
-                            border = self.this_screen_border
+                            if self.rainbow and self.colors:
+                                border = color(i) if g.windows else self.inactive
+                            else:
+                                border = self.this_screen_border
+                            to_highlight = True
+
                     else:
                         if self.qtile.current_screen == g.screen:
-                            border = self.other_current_screen_border
+                            if self.rainbow and self.colors:
+                                border = color(i) if g.windows else self.inactive
+                            else:
+                                border = self.other_current_screen_border
                         else:
-                            border = self.other_screen_border
+                            if self.rainbow and self.colors:
+                                border = color(i) if g.windows else self.inactive
+                            else:
+                                border = self.other_screen_border
+
             elif self.group_has_urgent(g) and self.urgent_alert_method in (
                 "border",
                 "block",
@@ -133,6 +174,7 @@ class GroupBox(_GroupBase, groupbox.GroupBox):
                 block=is_block,
                 line=is_line,
                 highlighted=to_highlight,
+                inverted=self.invert,
             )
             offset += bw + self.spacing
         self.drawer.draw(offsetx=self.offset, offsety=self.offsety, width=self.width)

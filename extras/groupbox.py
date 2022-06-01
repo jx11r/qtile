@@ -75,11 +75,7 @@ class _GroupBase(groupbox._GroupBase):
 class GroupBox(_GroupBase, groupbox.GroupBox):
     defaults = [
         ("invert", False, "Invert line position when 'line' highlight method isn't highlighted."),
-        (
-            "rainbow",
-            False,
-            "If set to True, 'colors' will be used instead of 'this_(current)_screen_border'."
-        ),
+        ("rainbow", False, "If set to True, 'colors' will be used instead of '*_screen_border'."),
         (
             "colors",
             False,

@@ -3,7 +3,7 @@ name: check
 on: [ push, pull_request ]
 
 jobs:
-  config:
+  qtile:
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -6,57 +6,22 @@ from libqtile.lazy import lazy
 from core.keys import keys, mod
 
 # Icons & Tags
-label = '●'
+circles = ['●'] * 6
+groups, tag = [], circles.copy()
 
 # Workspaces
-groups = [
-    Group('1',
-        label = label,
-        matches = [
-            Match(title = 'nvim')
-        ],
-    ),
+for g in (
+    ('1', tag[0], '', []),
+    ('2', tag[1], '', [Match(wm_class = 'code')]),
+    ('3', tag[2], '', []),
+    ('q', tag[3], 'stack', [Match(wm_class = 'firefox')]),
+    ('w', tag[4], 'stack', [Match(wm_class = 'discord')]),
+    ('e', tag[5], 'stack', [Match(wm_class = 'spotify')]),
+):
+    args = {'label': g[1], 'layout': g[2], 'matches': g[3]}
+    groups.append(Group(name = g[0], **args)) # type: ignore
 
-    Group('2',
-        label = label,
-        matches = [
-            Match(wm_class = 'code')
-        ],
-    ),
-
-    Group('3',
-        label = label,
-        matches = [
-            Match(wm_class = 'evince')
-        ],
-    ),
-
-    Group('q',
-        label = label,
-        layout = 'stack',
-        matches = [
-            Match(wm_class = 'firefox')
-        ],
-    ),
-
-    Group('w',
-        label = label,
-        layout = 'stack',
-        matches = [
-            Match(wm_class = ['telegram-desktop', 'discord']),
-            Match(title = 'WhatsApp Web'),
-        ],
-    ),
-
-    Group('e',
-        label = label,
-        layout = 'stack',
-        matches = [
-            Match(wm_class = ['spotify', 'vlc'])
-        ],
-    ),
-]
-
+# Key Bindings
 for i in groups:
     keys.extend([
         # mod1 + letter of group = switch to group

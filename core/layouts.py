@@ -49,13 +49,13 @@ floating_layout = layout.Floating(
             'lxappearance',
             'xfce4-about',
             'thunar',
-        ]),
+        ]), # type: ignore
 
         Match(title = [
             'File Operation Progress',
             'Open File',
             'branchdialog',
             'pinentry',
-        ]),
+        ]), # type: ignore
     ],
 )

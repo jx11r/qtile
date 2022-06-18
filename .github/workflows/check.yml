@@ -1,9 +1,9 @@
-name: mypy
+name: check
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
-  build:
+  config:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -22,8 +22,18 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mypy qtile
+          pip install mypy xcffib
+          pip install git+https://github.com/qtile/qtile.git@master
 
-      - name: Check config
-        run: |
-          mypy config.py
+      - run: qtile --version
+
+      - name: Mypy check
+        run: mypy config.py
+
+      - name: Python check
+        if: ${{ success() || failure() }}
+        run: python config.py
+
+      - name: Qtile check
+        if: ${{ success() || failure() }}
+        run: qtile check -c ./config.py

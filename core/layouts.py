@@ -3,7 +3,7 @@
 from libqtile import layout
 from libqtile.config import Match
 
-from utils.colors import color
+from utils import color
 
 # ---- Tiling ---------------------------- #
 config = {

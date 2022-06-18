@@ -1,11 +1,14 @@
 # --==[ Qtile Config ]==--
 
 # Import modules
-from core.keys import keys
-from core.groups import groups
-from core.layouts import layouts, floating_layout
-from core.screens import screens
-from core.mouse import mouse
+from core import (
+    floating_layout,
+    groups,
+    keys,
+    layouts,
+    mouse,
+    screens,
+)
 
 # Config
 dgroups_key_binder = None

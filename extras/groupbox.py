@@ -1,5 +1,5 @@
 from libqtile.widget import groupbox, base
-from .drawer import framed
+from extras.drawer import framed
 
 class _GroupBase(groupbox._GroupBase):
     def __init__(self, **config):

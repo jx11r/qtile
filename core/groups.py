@@ -3,7 +3,7 @@
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
-from .keys import keys, mod
+from core.keys import keys, mod
 
 # Icons & Tags
 label = '●'

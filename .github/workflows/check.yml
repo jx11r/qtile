@@ -25,15 +25,17 @@ jobs:
           pip install mypy xcffib
           pip install git+https://github.com/qtile/qtile.git@master
 
-      - run: qtile --version
+      - id: qtile
+        run: qtile --version
 
       - name: Mypy check
+        if: ${{ always() && steps.qtile.outcome == 'success' }}
         run: mypy config.py
 
       - name: Python check
-        if: ${{ success() || failure() }}
+        if: ${{ always() && steps.qtile.outcome == 'success' }}
         run: python config.py
 
       - name: Qtile check
-        if: ${{ success() || failure() }}
+        if: ${{ always() && steps.qtile.outcome == 'success' }}
         run: qtile check -l debug -c ./config.py

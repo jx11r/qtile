@@ -36,4 +36,4 @@ jobs:
 
       - name: Qtile check
         if: ${{ success() || failure() }}
-        run: qtile check -c ./config.py
+        run: qtile check -l debug -c ./config.py

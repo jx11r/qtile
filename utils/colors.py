@@ -1,17 +1,12 @@
 # --==[ Colors ]==--
 
-from os import path
 import json
+from utils import dir
 
-colorscheme = 'gruvbox_material'
+FILE = 'gruvbox_material'
+path = f'{dir.get()}/utils/colors/{FILE}.json'
 
-dir = path.join(
-    path.expanduser('~'),
-    '.config/qtile/utils/colors/',
-    colorscheme + '.json'
-)
-
-with open(dir) as file:
+with open(path) as file:
     color = json.load(file)
     file.close()
 

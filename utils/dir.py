@@ -7,4 +7,4 @@ def get() -> str:
         text = True,
     )
 
-    return process.communicate()[0]
+    return process.communicate()[0].strip()

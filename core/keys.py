@@ -7,7 +7,7 @@ from libqtile.utils import guess_terminal
 keys, mod, alt = [], 'mod4', 'mod1'
 terminal = guess_terminal()
 
-for my_keys in [
+for key in [
     # Switch/move between windows
     ([mod], 'h', lazy.layout.left()),
     ([mod], 'l', lazy.layout.right()),
@@ -55,7 +55,7 @@ for my_keys in [
     ([mod], 'b', lazy.spawn('firefox')),
 
     # File Manager
-    ([mod], 'e', lazy.spawn('thunar')),
+    ([mod], 't', lazy.spawn('thunar')),
 
     # Apps Menu
     ([mod, 'shift'], 'r', lazy.spawn('rofi -show')),
@@ -75,5 +75,4 @@ for my_keys in [
     ([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
     ([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
     ([], 'XF86AudioNext', lazy.spawn('playerctl next')),
-]:
-    keys.append(Key(*my_keys)) # type: ignore
+]: keys.append(Key(*key)) # type: ignore

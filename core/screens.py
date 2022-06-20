@@ -3,23 +3,15 @@
 from libqtile import bar
 from libqtile.config import Screen
 
-wallpaper = '~/wallpapers/wp1.png'
-screen_height = 768
+import core.widgets as widgets
 
-def calculate(height: int) -> dict:
-    size = height * 25 / 1080
-    border = height * 6 / 1080
-
-    return {
-        'size': round(size),
-        'border': round(border),
-    }
+wallpaper = '~/wallpapers/wp4.png'
 
 screens = [
     Screen(
         wallpaper = wallpaper,
         wallpaper_mode = 'fill',
-        # top = bar.Bar(),
+        top = bar.Bar(**widgets.bar),
     ),
 
     Screen(

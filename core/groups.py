@@ -4,10 +4,10 @@ from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
 from core.keys import keys, mod
+import core.widgets as widgets
 
 # Icons & Tags
-circles = ['●'] * 6
-groups, tag = [], circles.copy()
+groups, tag = [], widgets.tag
 
 # Workspaces
 for g in (

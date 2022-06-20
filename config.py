@@ -8,6 +8,7 @@ from core import (
     layouts,
     mouse,
     screens,
+    widget_defaults,
 )
 
 # Config

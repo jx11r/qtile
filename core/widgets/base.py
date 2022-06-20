@@ -5,13 +5,11 @@ from libqtile import widget
 font = 'SauceCodePro Nerd Font Medium'
 icon_font = 'SauceCodePro Nerd Font'
 
-widget_defaults = {
+defaults = {
     'font': font,
     'fontsize': 10,
     'padding': 0,
 }
-
-extension_defaults = widget_defaults.copy()
 
 def base(bg: str, fg: str) -> dict:
     return {

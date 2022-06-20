@@ -11,4 +11,4 @@ def config() -> tuple[list, dict]:
     except ImportError:
         return [], {}
 
-    return module.tag, module.bar
+    return module.tags, module.bar

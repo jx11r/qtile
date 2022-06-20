@@ -1,7 +1,7 @@
 from libqtile import widget
 from core.widgets.base import base, spacer
 
-tag: list[str] = ['●'] * 6
+tags: list[str] = ['●'] * 6
 
 bar = {
     'background': '#00000000',

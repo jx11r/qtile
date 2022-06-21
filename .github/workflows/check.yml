@@ -24,6 +24,7 @@ jobs:
         run: |
           pip install mypy xcffib
           pip install git+https://github.com/qtile/qtile.git@master
+          pip install git+https://github.com/elParaguayo/qtile-extras@main
 
       - id: qtile
         run: qtile --version

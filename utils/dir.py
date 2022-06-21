@@ -1,6 +1,9 @@
 # --==[ Current Directory ]==--
 
+from os import path
 from subprocess import Popen, PIPE
+
+XDG = '.config/qtile'
 
 def get() -> str:
     process = Popen(
@@ -8,5 +11,9 @@ def get() -> str:
         stdout = PIPE,
         text = True,
     )
+    output = process.communicate()[0].strip()
 
-    return process.communicate()[0].strip()
+    if path.expanduser('~') == output:
+        return f'{output}/{XDG}'
+    else:
+        return output

@@ -1,3 +1,5 @@
+# --==[ Bar Core ]==--
+
 from importlib import import_module
 
 BAR: str = 'rounded'

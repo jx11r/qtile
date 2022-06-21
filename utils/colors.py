@@ -3,7 +3,7 @@
 import json
 from utils import dir
 
-FILE = 'gruvbox_material'
+FILE = 'catppuccin'
 path = f'{dir.get()}/utils/colors/{FILE}.json'
 
 with open(path) as file:

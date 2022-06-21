@@ -9,8 +9,8 @@ from utils import color
 config = {
     'single_border_width': 0,
     'border_width': 0,
-    'single_margin': 9,
-    'margin': 9,
+    'single_margin': 10,
+    'margin': 10,
     'border_normal': '#00000000',
     'border_focus': color[5],
 }

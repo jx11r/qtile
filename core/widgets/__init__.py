@@ -4,5 +4,5 @@ tag, bar = config()
 
 __all__ = [
     'tag',
-    'bar'
+    'bar',
 ]

@@ -14,9 +14,9 @@ for g in (
     ('1', tag[0], '', []),
     ('2', tag[1], '', [Match(wm_class = 'code')]),
     ('3', tag[2], '', []),
-    ('q', tag[3], 'stack', [Match(wm_class = 'firefox')]),
-    ('w', tag[4], 'stack', [Match(wm_class = 'discord')]),
-    ('e', tag[5], 'stack', [Match(wm_class = 'spotify')]),
+    ('q', tag[3], 'max', [Match(wm_class = 'firefox')]),
+    ('w', tag[4], 'max', [Match(wm_class = 'discord')]),
+    ('e', tag[5], 'max', [Match(wm_class = 'spotify')]),
 ):
     args = {'label': g[1], 'layout': g[2], 'matches': g[3]}
     groups.append(Group(name = g[0], **args)) # type: ignore

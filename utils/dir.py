@@ -3,17 +3,21 @@
 from os import path
 from subprocess import Popen, PIPE
 
-XDG = '.config/qtile'
+XDG: str = '/.config/qtile'
+TEST: str = '/config.py'
 
 def get() -> str:
-    process = Popen(
-        ['pwd'],
-        stdout = PIPE,
-        text = True,
-    )
-    output = process.communicate()[0].strip()
+    PATH: str = XDG + TEST
+    HOME = path.expanduser('~')
 
-    if path.expanduser('~') == output:
-        return f'{output}/{XDG}'
-    else:
-        return output
+    try:
+        open(f'{HOME}{PATH}')
+        return HOME + XDG
+
+    except FileNotFoundError:
+        process = Popen(
+            ['pwd'],
+            stdout = PIPE,
+            text = True,
+        )
+        return process.communicate()[0].strip()

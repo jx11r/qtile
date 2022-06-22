@@ -11,7 +11,7 @@ config = {
     'border_width': 0,
     'single_margin': 10,
     'margin': 10,
-    'border_normal': '#00000000',
+    'border_normal': color[17],
     'border_focus': color[5],
 }
 
@@ -23,18 +23,14 @@ layouts = [
         change_ratio = 0.02,
     ),
 
-    layout.Stack(
-        **config,
-        num_stacks = 1,
-        # border_width = 0,
-    ),
+    layout.Max(**config),
 ]
 
 # ---- Floating -------------------------- #
 floating_layout = layout.Floating(
     fullscreen_border_width = 0,
     border_width = 0,
-    border_normal = '#00000000',
+    border_normal = color[17],
     border_focus = color[7],
     
     float_rules = [

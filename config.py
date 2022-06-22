@@ -1,6 +1,5 @@
 # --==[ Qtile Config ]==--
 
-# Import modules
 from core import (
     floating_layout,
     groups,
@@ -11,14 +10,14 @@ from core import (
     widget_defaults,
 )
 
-# Config
-dgroups_key_binder = None
-dgroups_app_rules = [] # type: list
-follow_mouse_focus = True
+auto_fullscreen = True
+auto_minimize = True
 bring_front_click = False
 cursor_warp = False
-auto_fullscreen = True
+dgroups_key_binder = None
+dgroups_app_rules = [ ] # type: list
+follow_mouse_focus = True
 focus_on_window_activation = 'smart'
 reconfigure_screens = True
-auto_minimize = False
+wl_input_rules = None
 wmname = 'qtile'

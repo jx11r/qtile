@@ -4,6 +4,8 @@ from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+from extras import bring_to_front
+
 keys, mod, alt = [], 'mod4', 'mod1'
 terminal = guess_terminal()
 
@@ -25,7 +27,6 @@ for key in [
 
   # Window management
   ([mod, 'shift'], 'space', lazy.layout.flip()),
-  ([mod], 'f', lazy.window.toggle_fullscreen()),
   ([mod], 'o', lazy.layout.maximize()),
   ([mod], 'n', lazy.layout.normalize()),
   ([mod], 'a', lazy.window.kill()),
@@ -33,6 +34,7 @@ for key in [
   # Floating window management
   ([mod], 'space', lazy.window.toggle_floating()),
   ([mod], 'c', lazy.window.center()),
+  ([mod], 'f', lazy.function(bring_to_front)),
 
   # Toggle between layouts
   ([mod], 'Tab', lazy.next_layout()),

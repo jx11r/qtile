@@ -1,13 +1,14 @@
 # --==[ Qtile Config ]==--
 
 from core import (
-    floating_layout,
-    groups,
-    keys,
-    layouts,
-    mouse,
-    screens,
-    widget_defaults,
+  floating_layout,
+  groups,
+  hooks,
+  keys,
+  layouts,
+  mouse,
+  screens,
+  widget_defaults,
 )
 
 auto_fullscreen = True

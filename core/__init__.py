@@ -5,16 +5,19 @@ from core.mouse import mouse
 from core.screens import screens
 from core.widgets.base import defaults
 
+from core import hooks
+
 widget_defaults = defaults.copy()
 extension_defaults = defaults.copy()
 
 __all__ = [
-    'extension_defaults',
-    'floating_layout',
-    'groups',
-    'keys',
-    'layouts',
-    'mouse',
-    'screens',
-    'widget_defaults',
+  'extension_defaults',
+  'floating_layout',
+  'groups',
+  'hooks',
+  'keys',
+  'layouts',
+  'mouse',
+  'screens',
+  'widget_defaults',
 ]

@@ -5,18 +5,15 @@ from libqtile.config import Screen
 
 import core.widgets as widgets
 
-wallpaper = '~/wallpapers/wp4.png'
+BAR = bar.Bar(**widgets.bar)
+
+config = {
+  'wallpaper': '~/wallpapers/wp4.png',
+  'wallpaper_mode': 'fill',
+}
 
 screens = [
-    Screen(
-        wallpaper = wallpaper,
-        wallpaper_mode = 'fill',
-        top = bar.Bar(**widgets.bar),
-    ),
-
-    Screen(
-        wallpaper = wallpaper,
-        wallpaper_mode = 'fill',
-        # top = bar.Bar()
-    ),
+  Screen(**config, top = BAR), # type: ignore
+  Screen(**config), # type: ignore
+  Screen(**config), # type: ignore
 ]

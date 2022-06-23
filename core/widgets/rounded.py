@@ -1,17 +1,21 @@
 from libqtile import widget
+
 from core.widgets.base import base, spacer
+from extras import RectDecoration
+from utils import color
 
 tags: list[str] = ['●'] * 6
 
-bar = {
-    'background': '#00000000',
-    'border_color': '#000000',
-    'border_width': 0,
-    'margin': [9, 15, 0, 15],
-    'opacity': 1,
-    'size': 20,
+bar: dict = {
+  'background': color[16],
+  'border_color': color[16],
+  'border_width': 4,
+  'margin': [10, 10, 0, 10],
+  'opacity': 1,
+  'size': 18,
 }
 
-widgets = [
-    widget.GroupBox(),
+widgets: list = [
+  widget.Spacer(length = 15),
+  widget.TextBox('lol'),
 ]

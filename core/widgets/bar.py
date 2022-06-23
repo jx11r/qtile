@@ -2,7 +2,7 @@
 
 from importlib import import_module
 
-BAR: str = 'rounded'
+BAR: str = 'decorated'
 
 def config() -> tuple[list, dict]:
   try:

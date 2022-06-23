@@ -1,8 +1,13 @@
+# Inspired by Axyl's polybar.
+# https://github.com/axyl-os
+
 from libqtile import widget
 
 from core.widgets.base import base, spacer
 from extras import RectDecoration
 from utils import color
+
+color[16] = '#000000'
 
 tags: list[str] = ['●'] * 6
 

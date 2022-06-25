@@ -7,6 +7,7 @@ from qtile_extras.widget.decorations import ( # type: ignore
 
 from extras.function import bring_to_front
 from extras.groupbox import GroupBox
+from extras.textbox import TextBox
 
 __all__ = [
   'bring_to_front',
@@ -14,6 +15,7 @@ __all__ = [
   'GroupBox',
   'modify',
   'RectDecoration',
+  'TextBox',
   'toolkit',
   'widget',
 ]

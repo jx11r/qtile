@@ -69,7 +69,7 @@ for key in [
   ([mod], 'XF86AudioRaiseVolume', lazy.spawn('brightnessctl set +5%')),
 
   # Volume
-  ([], 'XF86AudioMute', lazy.spawn('pamixer --togle-mute')),
+  ([], 'XF86AudioMute', lazy.spawn('pamixer --toggle-mute')),
   ([], 'XF86AudioLowerVolume', lazy.spawn('pamixer --decrease 5')),
   ([], 'XF86AudioRaiseVolume', lazy.spawn('pamixer --increase 5')),
 

@@ -1,4 +1,5 @@
 dev.py
+default_config.py
 __pycache__
 core/__pycache__
 core/extras/__pycache__

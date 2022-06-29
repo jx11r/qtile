@@ -1,6 +1,7 @@
 # Inspired by Axyl's polybar.
 # https://github.com/axyl-os
 
+from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.widgets.base import (
@@ -104,6 +105,14 @@ def updates(bg: str, fg: str) -> list:
     ),
   ]
 
+def window_name(bg: str, fg: str) -> object:
+  return widget.WindowName(
+    **base(bg, fg),
+    format = '{name}',
+    max_chars = 60,
+    width = CALCULATED,
+  )
+
 def cpu(bg: str, fg: str) -> list:
   return [
     modify(
@@ -183,6 +192,8 @@ widgets: list = [
   powerline(color[5], color[1]),
   *updates(color[1], color[16]),
 
+  widget.Spacer(),
+  window_name(None, color[17]),
   widget.Spacer(),
 
   *cpu(color[2], color[16]),

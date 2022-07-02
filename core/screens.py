@@ -8,7 +8,7 @@ import core.widgets as widgets
 BAR = bar.Bar(**widgets.bar)
 
 config = {
-  'wallpaper': '~/wallpapers/wp5.png',
+  'wallpaper': '~/wallpapers/wp6.png',
   'wallpaper_mode': 'fill',
 }
 

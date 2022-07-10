@@ -29,6 +29,7 @@
 - Packages used in this repository:
   - brightnessctl
   - nerd-fonts-source-code-pro (AUR)
+  - pacman-contrib
   - pamixer
   - playerctl
   - python-dbus-next

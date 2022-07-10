@@ -17,7 +17,7 @@
   <img src="https://raw.githubusercontent.com/jx11r/src/main/qtile/screenshot.png" />
 </div><br>
 
-+ **NOTE**: This repository only contains my qtile configuration, my full setup can be found here: 
++ **NOTE**: My full setup can be found here: 
 [Archdots](https://github.com/jx11r/archdots).
 
 ## Table of Contents

@@ -37,22 +37,22 @@ floating_layout = layout.Floating(
     *layout.Floating.default_float_rules,
     Match(wm_class = [
       'confirmreset',
+      'gnome-screenshot',
+      'lxappearance',
       'makebranch',
       'maketag',
       'ssh-askpass',
-      'gnome-screenshot',
-      'Xephyr',
-      'lxappearance',
-      'xfce4-about',
       'thunar',
+      'Xephyr',
+      'xfce4-about',
     ]), # type: ignore
 
     Match(title = [
-      'File Operation Progress',
-      'Open File',
       'branchdialog',
-      'pinentry',
+      'File Operation Progress',
       'minecraft-launcher',
+      'Open File',
+      'pinentry',
     ]), # type: ignore
   ],
 )

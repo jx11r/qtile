@@ -26,17 +26,17 @@
 >   - [Roadmap](#roadmap)
 
 ## Dependencies
-- Packages used in this repository:
-  - brightnessctl
-  - nerd-fonts-source-code-pro (AUR)
-  - pacman-contrib
-  - pamixer
-  - playerctl
-  - python-dbus-next
-  - python-iwlib
-  - python-psutil
-  - qtile-extras (AUR)
-  - qtile-git (AUR)
+Packages used in this repository:
+- brightnessctl
+- nerd-fonts-source-code-pro (AUR)
+- pacman-contrib
+- pamixer
+- playerctl
+- python-dbus-next
+- python-iwlib
+- python-psutil
+- qtile-extras (AUR)
+- qtile-git (AUR)
 
 ## Roadmap
 - [ ] Add better documentation

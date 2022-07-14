@@ -52,6 +52,7 @@ floating_layout = layout.Floating(
       'Open File',
       'branchdialog',
       'pinentry',
+      'minecraft-launcher',
     ]), # type: ignore
   ],
 )

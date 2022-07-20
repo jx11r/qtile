@@ -6,6 +6,7 @@ from qtile_extras.widget.decorations import (         # type: ignore
   BorderDecoration, RectDecoration
 )
 
+from extras.check_updates import CheckUpdates
 from extras.function import bring_to_front
 from extras.groupbox import GroupBox
 from extras.textbox import TextBox
@@ -13,6 +14,7 @@ from extras.textbox import TextBox
 __all__ = [
   'bring_to_front',
   'BorderDecoration',
+  'CheckUpdates',
   'GroupBox',
   'modify',
   'RectDecoration',

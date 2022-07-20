@@ -4,10 +4,8 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.widgets.base import (
-  base, decoration, font, icon
-)
-from extras import GroupBox, modify, TextBox, widget
+from core.widgets.base import base, decoration, font, icon
+from extras import CheckUpdates, GroupBox, modify, TextBox, widget
 from utils import color
 
 tags: list[str] = [
@@ -92,13 +90,15 @@ def updates(bg: str, fg: str) -> list:
       text = '',
       x = -6,
     ),
-    widget.CheckUpdates(
+    modify(
+      CheckUpdates,
       **base(bg, fg),
       **decoration('right'),
       colour_have_updates = fg,
       colour_no_updates = fg,
       display_format = '{updates} updates  ',
       distro = 'Arch_checkupdates',
+      initial_text = 'Loading...  ',
       no_update_string = 'No updates  ',
       padding = 0,
       update_interval = 3600,

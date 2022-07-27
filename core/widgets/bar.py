@@ -11,6 +11,6 @@ def config() -> tuple[list, dict]:
       { 'widgets': module.widgets }
     )
   except ImportError:
-    return [], {}
+    return [ ], { }
 
   return module.tags, module.bar

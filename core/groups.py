@@ -7,13 +7,13 @@ from core.keys import keys, mod
 import core.widgets as widgets
 
 # Icons & Tags
-groups, tag = [], widgets.tag
+groups, tag = [ ], widgets.tag
 
 # Workspaces
 for g in (
-  ('1', tag[0], '', []),
+  ('1', tag[0], '', [ ]),
   ('2', tag[1], '', [Match(wm_class = 'code')]),
-  ('3', tag[2], '', []),
+  ('3', tag[2], '', [ ]),
   ('q', tag[3], 'max', [Match(wm_class = 'firefox')]),
   ('w', tag[4], 'max', [Match(wm_class = 'discord')]),
   ('e', tag[5], 'max', [Match(wm_class = 'spotify')]),

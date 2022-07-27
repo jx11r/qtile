@@ -6,7 +6,7 @@ from libqtile.utils import guess_terminal
 
 from extras import bring_to_front
 
-keys, mod, alt = [], 'mod4', 'mod1'
+keys, mod, alt = [ ], 'mod4', 'mod1'
 terminal = guess_terminal()
 
 for key in [
@@ -30,6 +30,7 @@ for key in [
   ([mod], 'o', lazy.layout.maximize()),
   ([mod], 'n', lazy.layout.normalize()),
   ([mod], 'a', lazy.window.kill()),
+  ([ ], 'F11', lazy.window.toggle_fullscreen()),
 
   # Floating window management
   ([mod], 'space', lazy.window.toggle_floating()),
@@ -69,12 +70,12 @@ for key in [
   ([mod], 'XF86AudioRaiseVolume', lazy.spawn('brightnessctl set +5%')),
 
   # Volume
-  ([], 'XF86AudioMute', lazy.spawn('pamixer --toggle-mute')),
-  ([], 'XF86AudioLowerVolume', lazy.spawn('pamixer --decrease 5')),
-  ([], 'XF86AudioRaiseVolume', lazy.spawn('pamixer --increase 5')),
+  ([ ], 'XF86AudioMute', lazy.spawn('pamixer --toggle-mute')),
+  ([ ], 'XF86AudioLowerVolume', lazy.spawn('pamixer --decrease 5')),
+  ([ ], 'XF86AudioRaiseVolume', lazy.spawn('pamixer --increase 5')),
 
   # Player
-  ([], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
-  ([], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
-  ([], 'XF86AudioNext', lazy.spawn('playerctl next')),
+  ([ ], 'XF86AudioPlay', lazy.spawn('playerctl play-pause')),
+  ([ ], 'XF86AudioPrev', lazy.spawn('playerctl previous')),
+  ([ ], 'XF86AudioNext', lazy.spawn('playerctl next')),
 ]: keys.append(Key(*key)) # type: ignore

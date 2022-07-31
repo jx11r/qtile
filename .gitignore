@@ -1,9 +1,7 @@
 # Files
+config.json
 dev.py
 default_config.py
 
 # Folders
 __pycache__
-core/__pycache__
-core/extras/__pycache__
-utils/__pycache__

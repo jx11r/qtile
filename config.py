@@ -1,5 +1,3 @@
-# --==[ Qtile Config ]==--
-
 from core import (
   floating_layout,
   groups,

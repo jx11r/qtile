@@ -22,21 +22,22 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mypy xcffib
+          pip install mypy xcffib psutil
           pip install git+https://github.com/qtile/qtile.git@master
           pip install git+https://github.com/elParaguayo/qtile-extras@main
 
-      - id: qtile
+      - name: Qtile Version
+        id: qtile
         run: qtile --version
 
-      - name: Mypy check
+      - name: Mypy Check
         if: ${{ always() && steps.qtile.outcome == 'success' }}
         run: mypy config.py
 
-      - name: Python check
+      - name: Python Check
         if: ${{ always() && steps.qtile.outcome == 'success' }}
         run: python config.py
 
-      - name: Qtile check
+      - name: Qtile Check
         if: ${{ always() && steps.qtile.outcome == 'success' }}
         run: qtile check -l debug -c ./config.py

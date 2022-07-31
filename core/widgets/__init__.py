@@ -1,8 +1,8 @@
-from core.widgets.bar import config
+from core.widgets import theme
 
-tag, bar = config()
+bar, tag = theme.bar
 
 __all__ = [
-  'tag',
   'bar',
+  'tag',
 ]

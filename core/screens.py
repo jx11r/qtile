@@ -1,19 +1,21 @@
-# --==[ Screens ]==--
-
-from libqtile import bar
+from libqtile.bar import Bar
 from libqtile.config import Screen
 
-import core.widgets as widgets
+from core import widgets
+from utils import config
 
-BAR = bar.Bar(**widgets.bar)
-
-config = {
-  'wallpaper': '~/wallpapers/wp6.png',
-  'wallpaper_mode': 'fill',
-}
+bar = Bar(**widgets.bar)
 
 screens = [
-  Screen(**config, top = BAR), # type: ignore
-  Screen(**config), # type: ignore
-  Screen(**config), # type: ignore
+  Screen(
+    wallpaper = config['wallpaper'],
+    wallpaper_mode = 'fill',
+    top = bar,
+  ),
+
+  Screen(
+    wallpaper = config['wallpaper'],
+    wallpaper_mode = 'fill',
+    # top = Bar()
+  ),
 ]

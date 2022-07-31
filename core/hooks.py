@@ -1,17 +1,16 @@
-# --==[ Hooks ]==--
-
 import asyncio
-
 from libqtile import hook
-from core.screens import BAR, widgets
 
-MARGIN = widgets.bar['margin']
-TOTAL = MARGIN if type(MARGIN) is int else sum(MARGIN)
+from core import widgets
+from core.screens import bar
+
+margin = widgets.bar['margin']
+total = margin if type(margin) is int else sum(margin)
 
 @hook.subscribe.startup
 def startup():
-  if TOTAL == 0:
-    BAR.window.window.set_property(
+  if total == 0:
+    bar.window.window.set_property(
       name = 'WM_NAME',
       value = 'QTILE_BAR',
       type = 'STRING',

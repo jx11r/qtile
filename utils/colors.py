@@ -1,35 +1,16 @@
-# --==[ Colors ]==--
-
 import json
+
 from utils import dir
+from utils.defaults import config
 
-FILE: str = 'catppuccin'
-PATH = f'{dir.get()}/utils/colors/{FILE}.json'
+colorscheme = {
+  'catppuccin': 'catppuccin.json',
+  'gruvbox_material': 'gruvbox_material.json',
+  'material_ocean': 'material_ocean.json',
+}.get(config['colorscheme'], 'catppuccin.json')
 
-with open(PATH) as file:
+path = f'{dir.get()}/utils/colors/{colorscheme}'
+
+with open(path, 'r') as file:
   color = json.load(file)
   file.close()
-
-# Normal:
-  # [0] = black
-  # [1] = red
-  # [2] = green
-  # [3] = yellow
-  # [4] = blue
-  # [5] = magenta
-  # [6] = cyan
-  # [7] = white
-
-# Bright:
-  # [8]  = black
-  # [9]  = red
-  # [10] = green
-  # [11] = yellow
-  # [12] = blue
-  # [13] = magenta
-  # [14] = cyan
-  # [15] = white
-
-# Primary:
-  # [16] = background
-  # [17] = foreground

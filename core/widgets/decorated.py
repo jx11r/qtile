@@ -1,6 +1,3 @@
-# Inspired by Axyl's polybar.
-# https://github.com/axyl-os
-
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
@@ -13,8 +10,8 @@ tags: list[str] = [
 ]
 
 bar: dict = {
-  'background': color[16],
-  'border_color': color[16],
+  'background': color['bg'],
+  'border_color': color['bg'],
   'border_width': 4,
   'margin': [10, 10, 0, 10],
   'opacity': 1,
@@ -29,9 +26,9 @@ def sep(fg: str, offset = 0, padding = 8) -> TextBox:
     text = '',
   )
 
-def powerline(bg: str, color: str) -> TextBox:
+def powerline(bg: str, fg: str) -> TextBox:
   return TextBox(
-    **base(bg, color),
+    **base(bg, fg),
     **font(31),
     offset = -1,
     padding = -4,
@@ -56,12 +53,12 @@ def groups(bg: str) -> GroupBox:
     background = bg,
     borderwidth = 1,
     colors = [
-      color[6], color[5], color[3],
-      color[1], color[4], color[2],
+      color['cyan'], color['magenta'], color['yellow'],
+      color['red'], color['blue'], color['green'],
     ],
-    highlight_color = color[16],
+    highlight_color = color['bg'],
     highlight_method = 'line',
-    inactive = color[8],
+    inactive = color['black'],
     invert = True,
     padding = 7,
     rainbow = True,
@@ -184,24 +181,24 @@ def clock(bg: str, fg: str) -> list:
 
 widgets: list = [
   widget.Spacer(length = 4),
-  logo(color[4], color[16]),
-  sep(color[8], offset = -8),
+  logo(color['blue'], color['bg']),
+  sep(color['black'], offset = -8),
   groups(None),
-  sep(color[8], offset = 4, padding = 4),
-  *volume(color[5], color[16]),
-  powerline(color[5], color[1]),
-  *updates(color[1], color[16]),
+  sep(color['black'], offset = 4, padding = 4),
+  *volume(color['magenta'], color['bg']),
+  powerline(color['magenta'], color['red']),
+  *updates(color['red'], color['bg']),
 
   widget.Spacer(),
-  window_name(None, color[17]),
+  window_name(None, color['fg']),
   widget.Spacer(),
 
-  *cpu(color[2], color[16]),
-  powerline(color[2], color[3]),
-  *ram(color[3], color[16]),
-  powerline(color[3], color[6]),
-  *disk(color[6], color[16]),
-  sep(color[8]),
-  *clock(color[5], color[16]),
+  *cpu(color['green'], color['bg']),
+  powerline(color['green'], color['yellow']),
+  *ram(color['yellow'], color['bg']),
+  powerline(color['yellow'], color['cyan']),
+  *disk(color['cyan'], color['bg']),
+  sep(color['black']),
+  *clock(color['magenta'], color['bg']),
   widget.Spacer(length = 4),
 ]

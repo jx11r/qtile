@@ -1,13 +1,15 @@
-# --==[ Key Bindings ]==--
-
 from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-from extras import bring_to_front
+from extras import float_to_front
+from utils import config
 
 keys, mod, alt = [ ], 'mod4', 'mod1'
 terminal = guess_terminal()
+
+if config['terminal'] != 'default':
+  terminal = config['terminal']
 
 for key in [
   # Switch/move between windows
@@ -35,7 +37,7 @@ for key in [
   # Floating window management
   ([mod], 'space', lazy.window.toggle_floating()),
   ([mod], 'c', lazy.window.center()),
-  ([mod], 'f', lazy.function(bring_to_front)),
+  ([mod], 'f', lazy.function(float_to_front)),
 
   # Toggle between layouts
   ([mod], 'Tab', lazy.next_layout()),
@@ -55,10 +57,10 @@ for key in [
   ([mod], 'Return', lazy.spawn(terminal)),
 
   # Browser
-  ([mod], 'b', lazy.spawn('firefox')),
+  ([mod], 'b', lazy.spawn(config['browser'])),
 
   # File Manager
-  ([mod], 't', lazy.spawn('thunar')),
+  ([mod], 't', lazy.spawn(config['file_manager'])),
 
   # Apps Menu
   ([mod, 'shift'], 'r', lazy.spawn('rofi -show')),

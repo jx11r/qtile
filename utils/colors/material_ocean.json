@@ -1,22 +1,12 @@
-[
-  "#181a29",
-  "#f07178",
-  "#cdea9f",
-  "#ffd47e",
-  "#93bbff",
-  "#d3a7ee",
-  "#98e4ff",
-  "#bfd5de",
-
-  "#282a40",
-  "#eb7f84",
-  "#e0ffad",
-  "#ffee7e",
-  "#a3c5ff",
-  "#d6afed",
-  "#98fffd",
-  "#d1e5ed",
-
-  "#0f101a",
-  "#c5c9de"
-]
+{
+  "bg":      "#0f101a",
+  "fg":      "#c5c9de",
+  "black":   "#181a29",
+  "red":     "#f07178",
+  "green":   "#cdea9f",
+  "yellow":  "#ffd37e",
+  "blue":    "#93bbff",
+  "magenta": "#d3a7ee",
+  "cyan":    "#98e4ff",
+  "white":   "#bfd5de"
+}

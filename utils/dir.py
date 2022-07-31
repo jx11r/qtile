@@ -1,19 +1,13 @@
-# --==[ Current Directory ]==--
-
 from os import path
 from subprocess import Popen, PIPE
 
-XDG: str = '/.config/qtile'
-TEST: str = '/config.py'
+xdg = '.config/qtile'
+home = path.expanduser('~')
 
 def get() -> str:
-  PATH: str = XDG + TEST
-  HOME = path.expanduser('~')
-
   try:
-    open(f'{HOME}{PATH}')
-    return HOME + XDG
-
+    open(f'{home}/{xdg}/config.py', 'r').close()
+    return f'{home}/{xdg}'
   except FileNotFoundError:
     process = Popen(
       ['pwd'],

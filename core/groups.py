@@ -1,10 +1,8 @@
-# --==[ Groups ]==--
-
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
+from core import widgets
 from core.keys import keys, mod
-import core.widgets as widgets
 
 # Icons & Tags
 groups, tag = [ ], widgets.tag

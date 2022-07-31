@@ -1,5 +1,3 @@
-# --==[ Widget Base ]==--
-
 from libqtile import widget
 from extras import RectDecoration
 

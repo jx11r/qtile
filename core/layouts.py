@@ -1,5 +1,3 @@
-# --==[ Layouts ]==--
-
 from libqtile import layout
 from libqtile.config import Match
 
@@ -7,20 +5,20 @@ from utils import color
 
 # ---- Tiling ---------------------------- #
 config = {
-  'single_border_width': 0,
+  'border_focus': color['magenta'],
+  'border_normal': color['fg'],
   'border_width': 0,
-  'single_margin': 10,
   'margin': 10,
-  'border_normal': color[17],
-  'border_focus': color[5],
+  'single_border_width': 0,
+  'single_margin': 10,
 }
 
 layouts = [
   layout.MonadTall(
     **config,
+    change_ratio = 0.02,
     min_ratio = 0.30,
     max_ratio = 0.70,
-    change_ratio = 0.02,
   ),
 
   layout.Max(**config),
@@ -28,10 +26,10 @@ layouts = [
 
 # ---- Floating -------------------------- #
 floating_layout = layout.Floating(
-  fullscreen_border_width = 0,
+  border_focus = color['white'],
+  border_normal = color['fg'],
   border_width = 0,
-  border_normal = color[17],
-  border_focus = color[7],
+  fullscreen_border_width = 0,
 
   float_rules = [
     *layout.Floating.default_float_rules,

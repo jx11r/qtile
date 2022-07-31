@@ -1,11 +1,6 @@
 from libqtile.widget import check_updates
 
 class CheckUpdates(check_updates.CheckUpdates):
-  defaults = [
-    ('initial_text', '', 'Initial text to display.')
-  ]
-
-  def __init__(self, **config):
+  def __init__(self, initial_text = '', **config):
     super().__init__(**config)
-    self.add_defaults(CheckUpdates.defaults)
-    self.text = self.initial_text
+    self.text = initial_text

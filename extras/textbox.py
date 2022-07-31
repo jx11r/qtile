@@ -1,32 +1,22 @@
 import math
 
 from libqtile import bar
-from libqtile.widget import base
+from libqtile.widget import textbox
 
-class TextBox(base._TextBox):
-  '''A flexible textbox that can be updated from bound keys, scripts, and qshell.'''
-
+class TextBox(textbox.TextBox):
   def __init__(
     self,
+    offset = 0,
     text = ' ',
     width = bar.CALCULATED,
-    offset = 0,
     x = 0,
     y = 0,
     **config,
   ):
-    base._TextBox.__init__(self, text = text, width = width, **config)
+    super().__init__(text, width, **config)
     self.add_offset = offset
     self.add_x = x
     self.add_y = y
-
-  def cmd_update(self, text):
-    '''Update the text in a TextBox widget'''
-    self.update(text)
-
-  def cmd_get(self):
-    '''Retrieve the text in a TextBox widget'''
-    return self.text
 
   def calculate_length(self):
     if self.text:

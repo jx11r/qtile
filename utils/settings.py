@@ -2,11 +2,9 @@ import json
 from utils import dir
 
 directory = f'{dir.get()}/config.json'
-defaults = {
+settings = {
   'bar': 'decorated',
-  'browser': 'firefox',
   'colorscheme': 'catppuccin',
-  'file_manager': 'thunar',
   'terminal': 'default',
   'wallpaper': '~/wallpapers/wp6.png',
 }
@@ -17,6 +15,6 @@ try:
     file.close()
 except FileNotFoundError:
   with open(directory, 'w') as file:
-    file.write(json.dumps(defaults, indent = 2))
-    config = defaults.copy()
+    file.write(json.dumps(settings, indent = 2))
+    config = settings.copy()
     file.close()

@@ -48,24 +48,15 @@ for key in [
   ([mod, 'control'], 'r', lazy.reload_config()),
   ([mod, alt], 'r', lazy.restart()),
 
-  # Kill X server
+  # Kill xorg server
   ([mod, alt], 's', lazy.spawn('kill -9 -1')),
-
-  # ----------- # ----------- # ----------- # ----------- #
 
   # Terminal
   ([mod], 'Return', lazy.spawn(terminal)),
 
-  # Browser
-  ([mod], 'b', lazy.spawn(config['browser'])),
-
-  # File Manager
-  ([mod], 't', lazy.spawn(config['file_manager'])),
-
-  # Apps Menu
-  ([mod, 'shift'], 'r', lazy.spawn('rofi -show')),
+  # Application Launcher
+  ([mod, 'shift'], 'r', lazy.spawn('rofi -show window')),
   ([mod], 'r', lazy.spawn('rofi -show drun')),
-  ([mod], 'd', lazy.spawn('dmenu_run')),
 
   # Backlight
   ([mod], 'XF86AudioLowerVolume', lazy.spawn('brightnessctl set 5%-')),

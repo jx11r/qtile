@@ -9,7 +9,7 @@ colorscheme = {
   'material_ocean': 'material_ocean.json',
 }.get(config['colorscheme'], 'catppuccin.json')
 
-path = f'{dir.get()}/utils/colors/{colorscheme}'
+path = f'{dir.get()}/utils/colorscheme/{colorscheme}'
 
 with open(path, 'r') as file:
   color = json.load(file)

@@ -7,6 +7,7 @@ from utils import config
 
 keys, mod, alt = [ ], 'mod4', 'mod1'
 terminal = guess_terminal()
+alternative = config['alternative']
 
 if config['terminal'] != 'default':
   terminal = config['terminal']
@@ -53,6 +54,7 @@ for key in [
 
   # Terminal
   ([mod], 'Return', lazy.spawn(terminal)),
+  ([mod, 'shift'], 'Return', lazy.spawn(alternative)),
 
   # Application Launcher
   ([mod, 'shift'], 'r', lazy.spawn('rofi -show window')),

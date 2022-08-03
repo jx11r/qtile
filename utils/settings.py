@@ -6,6 +6,7 @@ settings = {
   'bar': 'decorated',
   'colorscheme': 'catppuccin',
   'terminal': 'default',
+  'alternative': '',
   'wallpaper': '~/wallpapers/wp6.png',
 }
 

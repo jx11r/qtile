@@ -35,6 +35,7 @@ floating_layout = layout.Floating(
     *layout.Floating.default_float_rules,
     Match(wm_class = [
       'confirmreset',
+      'floating',
       'gnome-screenshot',
       'lxappearance',
       'makebranch',

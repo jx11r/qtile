@@ -95,7 +95,7 @@ def updates(bg: str, fg: str) -> list:
       colour_no_updates = fg,
       display_format = '{updates} updates  ',
       distro = 'Arch_checkupdates',
-      initial_text = 'Loading...  ',
+      initial_text = 'No updates  ',
       no_update_string = 'No updates  ',
       padding = 0,
       update_interval = 3600,

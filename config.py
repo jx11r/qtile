@@ -10,7 +10,7 @@ from core import (
 )
 
 auto_fullscreen = True
-auto_minimize = True
+auto_minimize = False
 bring_front_click = False
 cursor_warp = False
 dgroups_key_binder = None

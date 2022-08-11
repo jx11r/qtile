@@ -12,7 +12,7 @@ for g in (
   ('1', tag[0], '', [ ]),
   ('2', tag[1], '', [Match(wm_class = 'code')]),
   ('3', tag[2], '', [ ]),
-  ('q', tag[3], 'max', [Match(wm_class = 'firefox')]),
+  ('q', tag[3], 'max', [Match(wm_class = 'google-chrome')]),
   ('w', tag[4], 'max', [Match(wm_class = 'discord')]),
   ('e', tag[5], 'max', [Match(wm_class = 'spotify')]),
 ):

@@ -1,5 +1,5 @@
 from libqtile import widget
-from extras import RectDecoration
+from extras import PowerLineDecoration, RectDecoration
 
 # This font mustn't be modified.
 icon_font = 'SauceCodePro Nerd Font'
@@ -37,6 +37,14 @@ def icon(bg: str, fg: str) -> dict:
     **base(bg, fg),
     **font(15),
   }
+
+def powerline(path: str | list, size: int = 9) -> dict:
+  return { 'decorations': [
+    PowerLineDecoration(
+      path = path,
+      size = size,
+    )
+  ]}
 
 def spacer(bg: str) -> object:
   return widget.Spacer(background = bg)

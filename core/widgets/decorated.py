@@ -1,7 +1,7 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.widgets.base import base, decoration, font, icon
+from core.widgets.base import base, decoration, font, icon, powerline
 from extras import CheckUpdates, GroupBox, modify, TextBox, widget
 from utils import color
 
@@ -24,16 +24,6 @@ def sep(fg: str, offset = 0, padding = 8) -> TextBox:
     offset = offset,
     padding = padding,
     text = '',
-  )
-
-def powerline(bg: str, fg: str) -> TextBox:
-  return TextBox(
-    **base(bg, fg),
-    **font(31),
-    offset = -1,
-    padding = -4,
-    text = '',
-    y = -1,
   )
 
 def logo(bg: str, fg: str) -> TextBox:
@@ -75,6 +65,7 @@ def volume(bg: str, fg: str) -> list:
     ),
     widget.PulseVolume(
       **base(bg, fg),
+      **powerline('arrow_right'),
       update_interval = 0.1,
     ),
   ]
@@ -83,9 +74,9 @@ def updates(bg: str, fg: str) -> list:
   return [
     TextBox(
       **icon(bg, fg),
-      offset = -2,
+      offset = -1,
       text = '',
-      x = -6,
+      x = -5,
     ),
     modify(
       CheckUpdates,
@@ -122,6 +113,7 @@ def cpu(bg: str, fg: str) -> list:
     ),
     widget.CPU(
       **base(bg, fg),
+      **powerline('arrow_right'),
       format = '{load_percent:.0f}%',
     )
   ]
@@ -130,13 +122,14 @@ def ram(bg: str, fg: str) -> list:
   return [
     TextBox(
       **icon(bg, fg),
-      offset = -3,
+      offset = -2,
       padding = 5,
       text = '﬙',
-      x = -3,
+      x = -2,
     ),
     widget.Memory(
       **base(bg, fg),
+      **powerline('arrow_right'),
       format = '{MemUsed: .0f}{mm} ',
       padding = -1,
     ),
@@ -146,9 +139,9 @@ def disk(bg: str, fg: str) -> list:
   return [
     TextBox(
       **icon(bg, fg),
-      offset = -2,
+      offset = -1,
       text = '',
-      x = -6,
+      x = -5,
     ),
     widget.DF(
       **base(bg, fg),
@@ -186,7 +179,6 @@ widgets: list = [
   groups(None),
   sep(color['black'], offset = 4, padding = 4),
   *volume(color['magenta'], color['bg']),
-  powerline(color['magenta'], color['red']),
   *updates(color['red'], color['bg']),
 
   widget.Spacer(),
@@ -194,9 +186,7 @@ widgets: list = [
   widget.Spacer(),
 
   *cpu(color['green'], color['bg']),
-  powerline(color['green'], color['yellow']),
   *ram(color['yellow'], color['bg']),
-  powerline(color['yellow'], color['cyan']),
   *disk(color['cyan'], color['bg']),
   sep(color['black']),
   *clock(color['magenta'], color['bg']),

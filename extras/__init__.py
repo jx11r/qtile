@@ -3,7 +3,7 @@ from qtile_extras.popup import toolkit                # type: ignore
 from qtile_extras.widget import modify                # type: ignore
 from qtile_extras.widget.mixins import TooltipMixin   # type: ignore
 from qtile_extras.widget.decorations import (         # type: ignore
-  BorderDecoration, RectDecoration
+  BorderDecoration, PowerLineDecoration, RectDecoration
 )
 
 from extras.check_updates import CheckUpdates

@@ -2,7 +2,7 @@ from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.widgets.base import base, decoration, font, icon, powerline
-from extras import CheckUpdates, Clock, GroupBox, TextBox
+from extras import CheckUpdates, Clock, GroupBox, TextBox, Volume
 from extras import modify, widget
 from utils import color
 
@@ -64,9 +64,14 @@ def volume(bg: str, fg: str) -> list:
       text = '',
       x = 4,
     ),
-    widget.PulseVolume(
+    modify(
+      Volume,
       **base(bg, fg),
       **powerline('arrow_right'),
+      decrease_cmd = 'pamixer --decrease 5',
+      increase_cmd = 'pamixer --increase 5',
+      get_volume_cmd = 'pamixer --get-volume-human',
+      mute_cmd = 'pamixer --toggle-mute',
       update_interval = 0.1,
     ),
   ]

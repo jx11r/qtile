@@ -7,6 +7,7 @@ from qtile_extras.widget.decorations import (         # type: ignore
 )
 
 from extras.check_updates import CheckUpdates
+from extras.clock import Clock
 from extras.function import float_to_front
 from extras.groupbox import GroupBox
 from extras.textbox import TextBox
@@ -14,9 +15,11 @@ from extras.textbox import TextBox
 __all__ = [
   'BorderDecoration',
   'CheckUpdates',
+  'Clock',
   'float_to_front',
   'GroupBox',
   'modify',
+  'PowerLineDecoration',
   'RectDecoration',
   'TextBox',
   'toolkit',

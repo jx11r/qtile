@@ -2,7 +2,8 @@ from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.widgets.base import base, decoration, font, icon, powerline
-from extras import CheckUpdates, GroupBox, modify, TextBox, widget
+from extras import CheckUpdates, Clock, GroupBox, TextBox
+from extras import modify, widget
 from utils import color
 
 tags: list[str] = [
@@ -164,10 +165,12 @@ def clock(bg: str, fg: str) -> list:
       text = '',
       x = 4,
     ),
-    widget.Clock(
+    modify(
+      Clock,
       **base(bg, fg),
       **decoration('right'),
       format = '%A - %I:%M %p ',
+      long_format = '%B %-d, %Y ',
       padding = 6,
     ),
   ]

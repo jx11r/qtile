@@ -2,7 +2,7 @@ from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.widgets.base import base, decoration, font, icon, powerline
-from extras import CheckUpdates, Clock, GroupBox, TextBox, Volume
+from extras import Clock, GroupBox, TextBox, Volume
 from extras import modify, widget
 from utils import color
 
@@ -84,8 +84,7 @@ def updates(bg: str, fg: str) -> list:
       text = '',
       x = -5,
     ),
-    modify(
-      CheckUpdates,
+    widget.CheckUpdates(
       **base(bg, fg),
       **decoration('right'),
       colour_have_updates = fg,

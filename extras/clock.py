@@ -5,7 +5,7 @@ class Clock(clock.Clock):
     (
       'long_format',
       '%A %d %B %Y | %H:%M',
-      'Format to show when mouse is over widget.',
+      'Format to show when widget is clicked.',
     ),
   ]
 
@@ -13,11 +13,16 @@ class Clock(clock.Clock):
     super().__init__(**config)
     self.add_defaults(Clock.defaults)
     self.short_format = self.format
+    self.toggled = False
+    self.add_callbacks(
+      { 'Button1': self.toggle }
+    )
 
-  def mouse_enter(self, *args, **kwargs):
-    self.format = self.long_format
-    self.bar.draw()
+  def toggle(self):
+    if self.toggled:
+      self.format = self.short_format
+    else:
+      self.format = self.long_format
 
-  def mouse_leave(self, *args, **kwargs):
-    self.format = self.short_format
-    self.bar.draw()
+    self.toggled = not self.toggled
+    self.update(self.poll())

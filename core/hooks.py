@@ -1,4 +1,3 @@
-import asyncio
 from libqtile import hook
 
 from core import widgets
@@ -17,8 +16,7 @@ def startup():
       format = 8,
     )
 
-@hook.subscribe.client_new
-async def client_new(client):
-  await asyncio.sleep(0.01)
-  if client.name == 'Spotify':
-    client.togroup('e')
+@hook.subscribe.client_name_updated
+def client_name_updated(window):
+  if window.name == 'Spotify':
+    window.cmd_togroup(group_name = 'e')

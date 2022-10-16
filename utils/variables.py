@@ -6,10 +6,10 @@ variables = {
   'bar': 'decorated',
   'colorscheme': 'catppuccin',
   'terminal': {
-    'primary': '',
-    'secondary': '',
+    'main': '',
+    'floating': '',
   },
-  'wallpaper': '~/wallpapers/image.png',
+  'wallpaper': '~/wallpapers/wp.png',
 }
 
 try:

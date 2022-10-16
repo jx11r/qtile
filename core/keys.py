@@ -8,8 +8,8 @@ from utils import config
 keys, mod, alt = [ ], 'mod4', 'mod1'
 terminal = config['terminal'].copy()
 
-if not terminal['primary']:
-  terminal['primary'] = guess_terminal()
+if not terminal['main']:
+  terminal['main'] = guess_terminal()
 
 for key in [
   # Switch/move between windows
@@ -52,8 +52,8 @@ for key in [
   ([mod, alt], 's', lazy.spawn('kill -9 -1')),
 
   # Terminal
-  ([mod], 'Return', lazy.spawn(terminal['primary'])),
-  ([mod, 'shift'], 'Return', lazy.spawn(terminal['secondary'])),
+  ([mod], 'Return', lazy.spawn(terminal['main'])),
+  ([mod, 'shift'], 'Return', lazy.spawn(terminal['floating'])),
 
   # Application Launcher
   ([mod, 'shift'], 'r', lazy.spawn('rofi -show window')),

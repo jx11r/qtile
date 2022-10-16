@@ -14,7 +14,7 @@
   </a>
 </div>
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jx11r/src/main/qtile/screenshot.png" />
+  <img src="https://raw.githubusercontent.com/jx11r/src/main/qtile/discord_2.png" />
 </div><br>
 
 + **NOTE**: My full setup can be found here: 

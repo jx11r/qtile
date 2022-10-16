@@ -5,7 +5,7 @@ from core import widgets
 from core.keys import keys, mod
 
 # Icons & Tags
-groups, tag = [ ], widgets.tag
+groups, tag = [ ], widgets.tags
 
 # Workspaces
 for g in (
@@ -14,7 +14,7 @@ for g in (
   ('3', tag[2], '', [ ]),
   ('q', tag[3], 'max', [Match(wm_class = 'google-chrome')]),
   ('w', tag[4], 'max', [Match(wm_class = 'discord')]),
-  ('e', tag[5], 'max', [Match(wm_class = 'spotify')]),
+  ('e', tag[5], 'max', [ ]),
 ):
   args = {'label': g[1], 'layout': g[2], 'matches': g[3]}
   groups.append(Group(name = g[0], **args)) # type: ignore

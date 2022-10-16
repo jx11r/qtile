@@ -1,7 +1,7 @@
 import json
 
 from utils import dir
-from utils.settings import config
+from utils.variables import config
 
 colorscheme = {
   'catppuccin': 'catppuccin.json',

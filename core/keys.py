@@ -6,11 +6,10 @@ from extras import float_to_front
 from utils import config
 
 keys, mod, alt = [ ], 'mod4', 'mod1'
-terminal = guess_terminal()
-alternative = config['alternative']
+terminal = config['terminal'].copy()
 
-if config['terminal'] != 'default':
-  terminal = config['terminal']
+if not terminal['primary']:
+  terminal['primary'] = guess_terminal()
 
 for key in [
   # Switch/move between windows
@@ -53,8 +52,8 @@ for key in [
   ([mod, alt], 's', lazy.spawn('kill -9 -1')),
 
   # Terminal
-  ([mod], 'Return', lazy.spawn(terminal)),
-  ([mod, 'shift'], 'Return', lazy.spawn(alternative)),
+  ([mod], 'Return', lazy.spawn(terminal['primary'])),
+  ([mod, 'shift'], 'Return', lazy.spawn(terminal['secondary'])),
 
   # Application Launcher
   ([mod, 'shift'], 'r', lazy.spawn('rofi -show window')),

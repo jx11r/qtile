@@ -1,5 +1,5 @@
 from utils.colors import color
-from utils.settings import config
+from utils.variables import config
 from utils import dir
 
 __all__ = [

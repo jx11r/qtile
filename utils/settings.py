@@ -2,14 +2,14 @@ import json
 from utils import dir
 
 directory = f'{dir.get()}/config.json'
-variables = {
+settings = {
   'bar': 'decorated',
   'colorscheme': 'catppuccin',
   'terminal': {
     'main': '',
     'floating': '',
   },
-  'wallpaper': '~/wallpapers/wp.png',
+  'wallpaper': '~/wallpaper/wp.png',
 }
 
 try:
@@ -18,6 +18,6 @@ try:
     file.close()
 except FileNotFoundError:
   with open(directory, 'w') as file:
-    file.write(json.dumps(variables, indent = 2))
-    config = variables.copy()
+    file.write(json.dumps(settings, indent = 2))
+    config = settings.copy()
     file.close()

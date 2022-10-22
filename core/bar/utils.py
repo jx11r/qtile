@@ -1,10 +1,11 @@
+from libqtile import widget
 from extras import PowerLineDecoration, RectDecoration
 
-defaults = dict(
-  font = 'SauceCodePro Nerd Font Medium',
-  fontsize = 10,
-  padding = None,
-)
+defaults = {
+  'font': 'SauceCodePro Nerd Font Medium',
+  'fontsize': 10,
+  'padding': None,
+}
 
 def base(bg: str, fg: str) -> dict:
   return {

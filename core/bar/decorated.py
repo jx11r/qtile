@@ -1,7 +1,7 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.bar.base import base, decoration, iconFont, powerline
+from core.bar.utils import base, decoration, iconFont, powerline
 from extras import Clock, GroupBox, TextBox, Volume
 from extras import modify, widget
 from utils import color

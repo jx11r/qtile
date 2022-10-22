@@ -3,11 +3,11 @@
   <a href="https://github.com/qtile/qtile">
     <img src="https://img.shields.io/badge/qtile-git-informational.svg?style=for-the-badge&logo=python&color=b4befe&logoColor=cdd6f4&labelColor=1e1e2e" />
   </a>
-  <a href="#">
+  <a href="#Qtile">
     <img src="https://img.shields.io/github/repo-size/jx11r/qtile?style=for-the-badge&logo=gitbook&color=f2cdcd&logoColor=cdd6f4&labelColor=1e1e2e" />
   </a>
-  <a href="#">
-    <img src="https://shields-io-visitor-counter.herokuapp.com/badge?page=jx11r.qtile&style=for-the-badge&logo=github&color=94e2d5&logoColor=cdd6f4&labelColor=1e1e2e" />
+  <a href="https://github.com/jx11r/qtile/stargazers">
+    <img src="https://img.shields.io/github/stars/jx11r/qtile?style=for-the-badge&logo=starship&color=94e2d5&logoColor=cdd6f4&labelColor=1e1e2e" />
   </a>
   <a href="https://discord.gg/MmrhPCrPM9">
     <img src="https://img.shields.io/discord/955163559086665728?style=for-the-badge&logo=discord&color=cba6f7&logoColor=cdd6f4&labelColor=1e1e2e" />

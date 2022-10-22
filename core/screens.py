@@ -1,16 +1,14 @@
 from libqtile.bar import Bar
 from libqtile.config import Screen
 
-from core import widgets
+from core import bar
 from utils import config
-
-bar = Bar(**widgets.bar)
 
 screens = [
   Screen(
     wallpaper = config['wallpaper'],
     wallpaper_mode = 'fill',
-    top = bar,
+    top = Bar(**bar.bar),
   ),
 
   Screen(

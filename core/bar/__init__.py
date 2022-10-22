@@ -1,4 +1,4 @@
-from core.widgets import theme
+from core.bar import theme
 
 bar, tags = theme.bar
 

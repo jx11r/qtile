@@ -3,7 +3,7 @@ from core.keys import keys
 from core.layouts import layouts, floating_layout
 from core.mouse import mouse
 from core.screens import screens
-from core.widgets.base import defaults
+from core.bar.base import defaults
 
 from core import hooks
 

@@ -1,11 +1,11 @@
 from libqtile.config import Group, Key, Match
 from libqtile.lazy import lazy
 
-from core import widgets
+from core import bar
 from core.keys import keys, mod
 
 # Icons & Tags
-groups, tag = [ ], widgets.tags
+groups, tag = [ ], bar.tags
 
 # Workspaces
 for g in (

@@ -5,7 +5,7 @@ theme = {
   'decorated': 'decorated',
 }.get(config['bar'], 'decorated')
 
-module = import_module(f'core.widgets.{theme}')
+module = import_module(f'core.bar.{theme}')
 module.bar.update(
   { 'widgets': module.widgets }
 )

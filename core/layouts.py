@@ -40,6 +40,7 @@ floating_layout = layout.Floating(
       'lxappearance',
       'makebranch',
       'maketag',
+      'psterm',
       'ssh-askpass',
       'thunar',
       'Xephyr',

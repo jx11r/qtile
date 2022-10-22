@@ -2,8 +2,7 @@ from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.bar.utils import base, decoration, iconFont, powerline
-from extras import Clock, GroupBox, TextBox, Volume
-from extras import modify, widget
+from extras import Clock, GroupBox, modify, TextBox, Volume, widget
 from utils import color
 
 tags: list[str] = [

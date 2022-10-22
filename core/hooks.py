@@ -19,6 +19,6 @@ def startup():
 
 @hook.subscribe.client_new
 async def client_new(client):
-  await asyncio.sleep(0.01)
+  await asyncio.sleep(0.5)
   if client.name == 'Spotify':
     client.togroup('e')

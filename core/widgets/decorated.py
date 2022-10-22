@@ -1,7 +1,7 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.widgets.base import base, decoration, font, icon, powerline
+from core.widgets.base import base, decoration, iconFont, powerline
 from extras import Clock, GroupBox, TextBox, Volume
 from extras import modify, widget
 from utils import color
@@ -21,7 +21,8 @@ bar: dict = {
 
 def sep(fg: str, offset = 0, padding = 8) -> TextBox:
   return TextBox(
-    **icon(None, fg),
+    **base(None, fg),
+    **iconFont(),
     offset = offset,
     padding = padding,
     text = '',
@@ -30,8 +31,9 @@ def sep(fg: str, offset = 0, padding = 8) -> TextBox:
 def logo(bg: str, fg: str) -> TextBox:
   return modify(
     TextBox,
+    **base(bg, fg),
     **decoration(),
-    **icon(bg, fg),
+    **iconFont(),
     mouse_callbacks = { 'Button1': lazy.restart() },
     offset = 4,
     padding = 17,
@@ -40,7 +42,7 @@ def logo(bg: str, fg: str) -> TextBox:
 
 def groups(bg: str) -> GroupBox:
   return GroupBox(
-    **font(15),
+    **iconFont(),
     background = bg,
     borderwidth = 1,
     colors = [
@@ -59,8 +61,9 @@ def volume(bg: str, fg: str) -> list:
   return [
     modify(
       TextBox,
+      **base(bg, fg),
       **decoration('left'),
-      **icon(bg, fg),
+      **iconFont(),
       text = '',
       x = 4,
     ),
@@ -79,7 +82,8 @@ def volume(bg: str, fg: str) -> list:
 def updates(bg: str, fg: str) -> list:
   return [
     TextBox(
-      **icon(bg, fg),
+      **base(bg, fg),
+      **iconFont(),
       offset = -1,
       text = '',
       x = -5,
@@ -110,8 +114,9 @@ def cpu(bg: str, fg: str) -> list:
   return [
     modify(
       TextBox,
-      **icon(bg, fg),
+      **base(bg, fg),
       **decoration('left'),
+      **iconFont(),
       offset = 3,
       text = '',
       x = 5,
@@ -126,7 +131,8 @@ def cpu(bg: str, fg: str) -> list:
 def ram(bg: str, fg: str) -> list:
   return [
     TextBox(
-      **icon(bg, fg),
+      **base(bg, fg),
+      **iconFont(),
       offset = -2,
       padding = 5,
       text = '﬙',
@@ -143,7 +149,8 @@ def ram(bg: str, fg: str) -> list:
 def disk(bg: str, fg: str) -> list:
   return [
     TextBox(
-      **icon(bg, fg),
+      **base(bg, fg),
+      **iconFont(),
       offset = -1,
       text = '',
       x = -5,
@@ -163,8 +170,9 @@ def clock(bg: str, fg: str) -> list:
   return [
     modify(
       TextBox,
+      **base(bg, fg),
       **decoration('left'),
-      **icon(bg, fg),
+      **iconFont(),
       offset = 2,
       text = '',
       x = 4,

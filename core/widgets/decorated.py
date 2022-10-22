@@ -188,7 +188,7 @@ def clock(bg: str, fg: str) -> list:
   ]
 
 widgets: list = [
-  widget.Spacer(length = 4),
+  widget.Spacer(length = 2),
   logo(color['blue'], color['bg']),
   sep(color['black'], offset = -8),
   groups(None),
@@ -205,5 +205,5 @@ widgets: list = [
   *disk(color['cyan'], color['bg']),
   sep(color['black']),
   *clock(color['magenta'], color['bg']),
-  widget.Spacer(length = 4),
+  widget.Spacer(length = 2),
 ]

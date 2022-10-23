@@ -70,10 +70,12 @@ def volume(bg: str, fg: str) -> list:
       Volume,
       **base(bg, fg),
       **powerline('arrow_right'),
-      decrease_cmd = 'pamixer --decrease 5',
-      increase_cmd = 'pamixer --increase 5',
-      get_volume_cmd = 'pamixer --get-volume-human',
-      mute_cmd = 'pamixer --toggle-mute',
+      commands = {
+        'decrease': 'pamixer --decrease 5',
+        'increase': 'pamixer --increase 5',
+        'get': 'pamixer --get-volume-human',
+        'mute': 'pamixer --toggle-mute',
+      },
       update_interval = 0.1,
     ),
   ]

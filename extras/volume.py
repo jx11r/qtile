@@ -8,15 +8,12 @@ class Volume(base._TextBox):
   defaults = [
     ('padding', 3, 'Padding left and right. Calculated if None.'),
     ('update_interval', 0.2, 'Update time in seconds.'),
-    ('mute_cmd', None, 'Mute command.'),
-    ('increase_cmd', None, 'Volume up command.'),
-    ('decrease_cmd', None, 'Volume down command.'),
-    ('get_volume_cmd', None, 'Command to get the current volume.'),
   ]
 
-  def __init__(self, text = '0', width = bar.CALCULATED, **config):
+  def __init__(self, commands: dict, text = '0%', width = bar.CALCULATED, **config):
     super().__init__(text, width, **config)
     self.add_defaults(Volume.defaults)
+    self.vol_commands = commands
     self.volume = None
 
     self.add_callbacks(
@@ -36,7 +33,7 @@ class Volume(base._TextBox):
 
   def get_volume(self):
     try:
-      command = self.get_volume_cmd
+      command = self.vol_commands['get']
       output = self.call_process(command, shell = True)
       if 'muted' in output.lower():
         output = 'M'
@@ -56,13 +53,13 @@ class Volume(base._TextBox):
     self.timeout_add(self.update_interval, self.update)
 
   def mute(self):
-    if self.mute_cmd is not None:
-      subprocess.call(self.mute_cmd, shell = True)
+    if 'mute' in self.vol_commands:
+      subprocess.call(self.vol_commands['mute'], shell = True)
 
   def increase(self):
-    if self.increase_cmd is not None:
-      subprocess.call(self.increase_cmd, shell = True)
+    if 'increase' in self.vol_commands:
+      subprocess.call(self.vol_commands['increase'], shell = True)
 
   def decrease(self):
-    if self.decrease_cmd is not None:
-      subprocess.call(self.decrease_cmd, shell = True)
+    if 'decrease' in self.vol_commands:
+      subprocess.call(self.vol_commands['decrease'], shell = True)

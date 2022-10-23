@@ -1,13 +1,21 @@
 from importlib import import_module
+from libqtile.bar import Bar
+
 from utils import config
 
-theme = {
-  'decorated': 'decorated',
-}.get(config['bar'], 'decorated')
+themes = [
+  'decorated'
+]
 
-module = import_module(f'core.bar.{theme}')
-module.bar.update(
-  { 'widgets': module.widgets }
-)
+if config['bar'] in themes:
+  module = import_module(f"core.bar.{config['bar']}")
+  module.bar.update(
+    { 'widgets': module.widgets }
+  )
 
-bar = (module.bar, module.tags)
+  bar: tuple[Bar | None, list] = (
+    Bar(**module.bar),
+    module.tags,
+  )
+else:
+  bar = ( None, [None] * 10 )

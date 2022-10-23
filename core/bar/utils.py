@@ -20,7 +20,7 @@ def decoration(side: str = '') -> dict:
       radius = {
         'left': [8, 0, 0, 8],
         'right': [0, 8, 8, 0]
-        }.get(side, 8),
+      }.get(side, 8),
       use_widget_background = True,
     )
   ]}

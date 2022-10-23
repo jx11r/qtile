@@ -3,11 +3,16 @@ import json
 from utils import dir
 from utils.settings import config
 
-colorscheme = {
-  'catppuccin': 'catppuccin.json',
-  'gruvbox_material': 'gruvbox_material.json',
-  'material_ocean': 'material_ocean.json',
-}.get(config['colorscheme'], 'catppuccin.json')
+colorschemes = [
+  'catppuccin',
+  'gruvbox_material',
+  'material_ocean',
+]
+
+if config['colorscheme'] in colorschemes:
+  colorscheme = f"{config['colorscheme']}.json"
+else:
+  colorscheme = 'catppuccin.json'
 
 path = f'{dir.get()}/utils/colorscheme/{colorscheme}'
 

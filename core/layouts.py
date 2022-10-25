@@ -6,7 +6,7 @@ from utils import color
 # ---- Tiling ---------------------------- #
 config = {
   'border_focus': color['magenta'],
-  'border_normal': color['fg'],
+  'border_normal': color['bg'],
   'border_width': 0,
   'margin': 10,
   'single_border_width': 0,
@@ -27,7 +27,7 @@ layouts = [
 # ---- Floating -------------------------- #
 floating_layout = layout.Floating(
   border_focus = color['white'],
-  border_normal = color['fg'],
+  border_normal = color['bg'],
   border_width = 0,
   fullscreen_border_width = 0,
 

@@ -12,12 +12,13 @@ if not terminal['main']:
   terminal['main'] = guess_terminal()
 
 for key in [
-  # Switch/move between windows
+  # Switch between windows
   ([mod], 'h', lazy.layout.left()),
   ([mod], 'l', lazy.layout.right()),
   ([mod], 'j', lazy.layout.down()),
   ([mod], 'k', lazy.layout.up()),
 
+  # Move windows between columns
   ([mod, 'shift'], 'h', lazy.layout.shuffle_left()),
   ([mod, 'shift'], 'l', lazy.layout.shuffle_right()),
   ([mod, 'shift'], 'j', lazy.layout.shuffle_down()),
@@ -48,7 +49,7 @@ for key in [
   ([mod, 'control'], 'r', lazy.reload_config()),
   ([mod, alt], 'r', lazy.restart()),
 
-  # Kill xorg server
+  # Kill X11 session
   ([mod, alt], 's', lazy.spawn('kill -9 -1')),
 
   # Terminal
@@ -58,6 +59,9 @@ for key in [
   # Application Launcher
   ([mod, 'shift'], 'r', lazy.spawn('rofi -show window')),
   ([mod], 'r', lazy.spawn('rofi -show drun')),
+
+  # Screenshot Tool
+  ([ ], 'Print', lazy.spawn('gnome-screenshot -i')),
 
   # Backlight
   ([mod], 'XF86AudioLowerVolume', lazy.spawn('brightnessctl set 5%-')),

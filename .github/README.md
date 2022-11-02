@@ -34,7 +34,7 @@
 - python-dbus-next
 - python-iwlib
 - python-psutil
-- qtile-extras (AUR)
+- qtile-extras-git (AUR)
 - qtile-git (AUR)
 
 ## Roadmap

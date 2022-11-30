@@ -19,27 +19,15 @@
 
 + *My full setup can be found here: [archdots](https://github.com/jx11r/archdots).*
 
-## Table of Contents
-> - [Qtile](#Qtile)
->   - [Dependencies](#dependencies)
->   - [Roadmap](#roadmap)
-
 ## Dependencies
 - brightnessctl
 - nerd-fonts-source-code-pro (AUR)
 - pacman-contrib
 - pamixer
 - playerctl
-- python-dbus-next
-- python-iwlib
 - python-psutil
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
-
-## Roadmap
-- [ ] Add better documentation
-- [ ] Add gallery section (screenshots)
-- [ ] Add more bar configurations
 
 <p align="center">
   <a href="https://github.com/jx11r/qtile/blob/main/LICENSE">

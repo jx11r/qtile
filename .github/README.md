@@ -20,11 +20,11 @@
 + *My full setup can be found here: [archdots](https://github.com/jx11r/archdots).*
 
 ## Dependencies
-- brightnessctl
+- brightnessctl (optional)
 - nerd-fonts-source-code-pro (AUR)
 - pacman-contrib
 - pamixer
-- playerctl
+- playerctl (optional)
 - python-psutil
 - qtile-extras-git (AUR)
 - qtile-git (AUR)

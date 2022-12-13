@@ -35,7 +35,6 @@ floating_layout = layout.Floating(
     *layout.Floating.default_float_rules,
     Match(wm_class = [
       'confirmreset',
-      'floating',
       'gnome-screenshot',
       'lxappearance',
       'makebranch',
@@ -45,6 +44,7 @@ floating_layout = layout.Floating(
       'thunar',
       'Xephyr',
       'xfce4-about',
+      'window',
     ]), # type: ignore
 
     Match(title = [
@@ -53,6 +53,7 @@ floating_layout = layout.Floating(
       'minecraft-launcher',
       'Open File',
       'pinentry',
+      'window',
     ]), # type: ignore
   ],
 )

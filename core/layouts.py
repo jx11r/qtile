@@ -44,7 +44,7 @@ floating_layout = layout.Floating(
       'thunar',
       'Xephyr',
       'xfce4-about',
-      'window',
+      'wm',
     ]), # type: ignore
 
     Match(title = [
@@ -53,7 +53,7 @@ floating_layout = layout.Floating(
       'minecraft-launcher',
       'Open File',
       'pinentry',
-      'window',
+      'wm',
     ]), # type: ignore
   ],
 )

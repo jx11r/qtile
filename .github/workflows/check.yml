@@ -3,7 +3,7 @@ name: check
 on: [ push, pull_request ]
 
 jobs:
-  qtile:
+  config:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
@@ -26,18 +26,16 @@ jobs:
           pip install git+https://github.com/qtile/qtile.git@master
           pip install git+https://github.com/elParaguayo/qtile-extras@main
 
-      - name: Qtile Version
-        id: qtile
-        run: qtile --version
+      - run: qtile --version
 
-      - name: Mypy Check
-        if: ${{ always() && steps.qtile.outcome == 'success' }}
+      - name: "cmd: mypy"
+        if: success() || failure()
         run: mypy config.py
 
-      - name: Python Check
-        if: ${{ always() && steps.qtile.outcome == 'success' }}
+      - name: "cmd: python"
+        if: success() || failure()
         run: python config.py
 
-      - name: Qtile Check
-        if: ${{ always() && steps.qtile.outcome == 'success' }}
-        run: qtile check -l debug -c ./config.py
+      - name: "cmd: qtile check"
+        if: success() || failure()
+        run: qtile check -c ./config.py

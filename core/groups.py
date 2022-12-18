@@ -17,7 +17,7 @@ for g in (
   ('e', tag[5], 'max', [ ]),
 ):
   args = {'label': g[1], 'layout': g[2], 'matches': g[3]}
-  groups.append(Group(name = g[0], **args)) # type: ignore
+  groups.append(Group(name = g[0], **args))
 
 # Key Bindings
 for i in groups:

@@ -5,11 +5,11 @@ from core.bar.utils import base, decoration, iconFont, powerline
 from extras import Clock, GroupBox, modify, TextBox, Volume, widget
 from utils import color
 
-tags: list[str] = [
+tags = [
   '', '', '', '', '切', '',
 ]
 
-bar: dict = {
+bar = {
   'background': color['bg'],
   'border_color': color['bg'],
   'border_width': 4,
@@ -188,7 +188,7 @@ def clock(bg: str, fg: str) -> list:
     ),
   ]
 
-widgets: list = [
+widgets = [
   widget.Spacer(length = 2),
   logo(color['blue'], color['bg']),
   sep(color['black'], offset = -8),

@@ -60,6 +60,9 @@ for key in [
   ([mod, 'shift'], 'r', lazy.spawn('rofi -show window')),
   ([mod], 'r', lazy.spawn('rofi -show drun')),
 
+  # Web Browser
+  ([mod], 'b', lazy.spawn(config['browser'])),
+
   # Screenshot Tool
   ([ ], 'Print', lazy.spawn('gnome-screenshot -i')),
 

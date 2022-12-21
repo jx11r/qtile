@@ -21,13 +21,13 @@
 
 ## Dependencies
 - brightnessctl (optional)
-- nerd-fonts-source-code-pro (AUR)
 - pacman-contrib
 - pamixer
 - playerctl (optional)
 - python-psutil
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
+- ttf-sourcecodepro-nerd
 
 <p align="center">
   <a href="https://github.com/jx11r/qtile/blob/main/LICENSE">

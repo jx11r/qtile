@@ -19,7 +19,7 @@
 
 + *My full setup can be found here: [archdots](https://github.com/jx11r/archdots).*
 
-## Dependencies
+## Requirements
 - brightnessctl (optional)
 - pacman-contrib
 - pamixer

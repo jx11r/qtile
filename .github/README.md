@@ -15,9 +15,7 @@
 </div>
 <div align="center">
   <img src="https://raw.githubusercontent.com/jx11r/src/!/img/qtile.png" />
-</div><br>
-
-+ *My full setup can be found here: [archdots](https://github.com/jx11r/archdots).*
+</div>
 
 ## Requirements
 - brightnessctl (optional)

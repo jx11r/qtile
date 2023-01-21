@@ -1,22 +1,34 @@
 from libqtile.widget import groupbox, base
 from extras.drawer import framed
 
-class _GroupBase(groupbox._GroupBase):
+class GroupBox(groupbox.GroupBox):
+  defaults = [
+    ("invert", False, "Invert line position when 'line' highlight method isn't highlighted."),
+    ("rainbow", False, "If set to True, 'colors' will be used instead of '*_screen_border'."),
+    (
+      "colors",
+      False,
+      "Receive a list of strings."
+      "Allows each tag to be an independent/unique color when selected, this overrides 'active'."
+    ),
+    (
+      "icons",
+      {
+        "active": "",
+        "empty": "○",
+        "occupied": "◉",
+      },
+      "Will be used in the 'icon' highlight method.",
+    )
+  ]
+
   def __init__(self, **config):
     super().__init__(**config)
+    self.add_defaults(GroupBox.defaults)
 
   def _configure(self, qtile, bar):
-    base._Widget._configure(self, qtile, bar)
-
-    if self.fontsize is None:
-      calc = self.bar.height - self.margin_y * 2 - self.borderwidth * 2 - self.padding_y * 2
-      self.fontsize = max(calc, 1)
-
-    self.layout = self.drawer.textlayout(
-      "", "ffffff", self.font, self.fontsize, self.fontshadow
-    )
+    super()._configure(qtile, bar)
     self.layout.framed = framed.__get__(self.layout)
-    self.setup_hooks()
 
   def drawbox(
     self,
@@ -72,24 +84,12 @@ class _GroupBase(groupbox._GroupBase):
     else:
       framed.draw(offset, y, rounded)
 
-class GroupBox(_GroupBase, groupbox.GroupBox):
-  defaults = [
-    ("invert", False, "Invert line position when 'line' highlight method isn't highlighted."),
-    ("rainbow", False, "If set to True, 'colors' will be used instead of '*_screen_border'."),
-    (
-      "colors",
-      False,
-      "Receive a list of strings."
-      "Allows each tag to be an independent/unique color when selected, this overrides 'active'."
-    ),
-  ]
-
-  def __init__(self, **config):
-    super().__init__(**config)
-    self.add_defaults(GroupBox.defaults)
-
   def draw(self):
     self.drawer.clear(self.background or self.bar.background)
+    is_block = self.highlight_method == "block"
+    is_line = self.highlight_method == "line"
+    is_icon = self.highlight_method == "icon"
+    to_highlight = False
 
     def color(index: int) -> str:
       try:
@@ -99,23 +99,25 @@ class GroupBox(_GroupBase, groupbox.GroupBox):
 
     offset = self.margin_x
     for i, g in enumerate(self.groups):
-      to_highlight = False
-      is_block = self.highlight_method == "block"
-      is_line = self.highlight_method == "line"
-
       bw = self.box_width([g])
 
       if self.group_has_urgent(g) and self.urgent_alert_method == "text":
         text_color = self.urgent_text
       elif g.windows:
         text_color = color(i) if self.colors else self.active
+        icon = self.icons["occupied"]
       else:
         text_color = self.inactive
+        icon = self.icons["empty"]
 
       if g.screen:
         if self.highlight_method == "text":
           border = None
           text_color = self.this_current_screen_border
+        elif is_icon:
+          icon = self.icons["active"]
+          border = None
+          text_color = color(i) if self.colors else self.this_current_screen_border
         else:
           if self.block_highlight_text_color:
             text_color = self.block_highlight_text_color
@@ -161,7 +163,7 @@ class GroupBox(_GroupBase, groupbox.GroupBox):
 
       self.drawbox(
         offset,
-        g.label,
+        icon if is_icon else g.label,
         border,
         text_color,
         highlight_color=self.highlight_color,

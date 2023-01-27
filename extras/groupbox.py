@@ -86,10 +86,6 @@ class GroupBox(groupbox.GroupBox):
 
   def draw(self):
     self.drawer.clear(self.background or self.bar.background)
-    is_block = self.highlight_method == "block"
-    is_line = self.highlight_method == "line"
-    is_icon = self.highlight_method == "icon"
-    to_highlight = False
 
     def color(index: int) -> str:
       try:
@@ -99,6 +95,11 @@ class GroupBox(groupbox.GroupBox):
 
     offset = self.margin_x
     for i, g in enumerate(self.groups):
+      is_block = self.highlight_method == "block"
+      is_line = self.highlight_method == "line"
+      is_icon = self.highlight_method == "icon"
+      to_highlight = False
+
       bw = self.box_width([g])
 
       if self.group_has_urgent(g) and self.urgent_alert_method == "text":

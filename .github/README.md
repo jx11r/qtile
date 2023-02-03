@@ -22,9 +22,11 @@
 - pacman-contrib
 - pamixer
 - playerctl (optional)
+- python-dbus-next
 - python-psutil
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
+- ttf-nerd-fonts-symbols-2048-em
 - ttf-sourcecodepro-nerd
 
 <p align="center">

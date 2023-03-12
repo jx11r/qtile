@@ -19,4 +19,4 @@ follow_mouse_focus = True
 focus_on_window_activation = 'smart'
 reconfigure_screens = True
 wl_input_rules = None
-wmname = 'qtile'
+wmname = 'LG3D'

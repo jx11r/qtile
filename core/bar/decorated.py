@@ -169,7 +169,7 @@ def disk(bg, fg) -> list:
         ),
         widget.DF(
             **base(bg, fg),
-            decorations=[rectangle("left")],
+            decorations=[rectangle("right")],
             format="{f} GB  ",
             padding=0,
             partition="/",

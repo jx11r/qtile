@@ -32,6 +32,7 @@ floating_layout = layout.Floating(
         Match(
             wm_class=[
                 "confirmreset",
+                "Display",
                 "gnome-screenshot",
                 "lxappearance",
                 "makebranch",

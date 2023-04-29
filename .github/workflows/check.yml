@@ -22,20 +22,21 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mypy xcffib psutil
-          # pip install git+https://github.com/qtile/qtile.git@master
-          # pip install git+https://github.com/elParaguayo/qtile-extras@main
+          pip install wheel xcffib mypy psutil
+          pip install --no-cache --upgrade --no-build-isolation cairocffi
+          pip install --no-build-isolation git+https://github.com/qtile/qtile.git@master
+          pip install git+https://github.com/elParaguayo/qtile-extras@main
 
-      # - run: qtile --version
+      - run: qtile --version
 
-      # - name: "cmd: mypy"
-      #   if: success() || failure()
-      #   run: mypy config.py
+      - name: "cmd: mypy"
+        if: success() || failure()
+        run: mypy config.py
 
-      # - name: "cmd: python"
-      #   if: success() || failure()
-      #   run: python config.py
+      - name: "cmd: python"
+        if: success() || failure()
+        run: python config.py
 
-      # - name: "cmd: qtile check"
-      #   if: success() || failure()
-      #   run: qtile check -c ./config.py
+      - name: "cmd: qtile check"
+        if: success() || failure()
+        run: qtile check -c ./config.py

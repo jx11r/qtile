@@ -19,14 +19,23 @@ def icon_font(size=15) -> dict:
     return {"font": font, "fontsize": size}
 
 
-def powerline(path: str | list, size=9) -> object:
-    return PowerLineDecoration(path=path, size=size)
+def powerline(path: str | list, size=9) -> dict:
+    return { "decorations": [
+        PowerLineDecoration(
+            path=path,
+            size=size,
+        )
+    ]}  # fmt: skip
 
 
-def rectangle(side: str = "") -> object:
-    radius = {"left": [8, 0, 0, 8], "right": [0, 8, 8, 0]}
-    return RectDecoration(
-        filled=True,
-        radius=radius.get(side.lower(), 8),
-        use_widget_background=True,
-    )
+def rectangle(side: str = "") -> dict:
+    return { "decorations": [
+        RectDecoration(
+            filled = True,
+            radius = {
+                "left": [8, 0, 0, 8],
+                "right": [0, 8, 8, 0]
+            }.get(side, 8),
+            use_widget_background = True,
+        )
+    ]}  # fmt: skip

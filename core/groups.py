@@ -6,23 +6,21 @@ from core.keys import keys, mod
 
 groups, tag = [], bar.tags
 
-for g in (
-    ("1", tag[0], None, []),
-    ("2", tag[1], "max", [Match(wm_class="code")]),
-    ("3", tag[2], None, []),
-    ("q", tag[3], "max", [Match(wm_class="brave-browser")]),
-    ("w", tag[4], "max", [Match(wm_class="discord")]),
-    ("e", tag[5], "max", []),
-):
-    args = {"label": g[1], "layout": g[2], "matches": g[3]}
-    groups.append(Group(g[0], **args))
+for i, (key, layout, matches) in enumerate([
+    ("1", None, []),
+    ("2", "max", [Match(wm_class="code")]),
+    ("3", None, []),
+    ("q", "max", [Match(wm_class="brave-browser")]),
+    ("w", "max", [Match(wm_class="discord")]),
+    ("e", "max", []),
+]):  # fmt: skip
+    groups.append(Group(key, matches, layout=layout, label=tag[i]))  # type: ignore
 
-for i in groups:
-    keys.extend(
-        [
-            # mod1 + letter of group = switch to group
-            Key([mod], i.name, lazy.group[i.name].toscreen(toggle=True)),
-            # mod1 + shift + letter of group = move focused window to group
-            Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-        ]
-    )
+for group in groups:
+    keys.extend([
+        # mod1 + letter of group = switch to group
+        Key([mod], group.name, lazy.group[group.name].toscreen(toggle=True)),
+
+        # mod1 + shift + letter of group = move focused window to group
+        Key([mod, "shift"], group.name, lazy.window.togroup(group.name)),
+    ])  # fmt: skip

@@ -27,6 +27,8 @@
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
 - ttf-nerd-fonts-symbols-2048-em
+- ttf-nerd-fonts-symbols-2048-em-mono
+- ttf-nerd-fonts-symbols-common
 - ttf-sourcecodepro-nerd
 
 <p align="center">

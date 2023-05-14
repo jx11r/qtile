@@ -14,7 +14,7 @@ bar = {
     "size": 18,
 }
 
-tags = ["", "", "", "", "切", ""]
+tags = ["", "", "", "󰈹", "󰇮", ""]
 
 
 def sep(fg, offset=0, padding=8) -> TextBox:
@@ -23,7 +23,7 @@ def sep(fg, offset=0, padding=8) -> TextBox:
         **icon_font(),
         offset=offset,
         padding=padding,
-        text="",
+        text="󰇙",
     )
 
 
@@ -128,7 +128,7 @@ def cpu(bg, fg) -> list:
             **icon_font(),
             **rectangle("left"),
             offset=3,
-            text="",
+            text="󰍛",
             x=5,
         ),
         widget.CPU(
@@ -146,7 +146,7 @@ def ram(bg, fg) -> list:
             **icon_font(),
             offset=-2,
             padding=5,
-            text="﬙",
+            text="󰘚",
             x=-2,
         ),
         widget.Memory(

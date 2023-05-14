@@ -26,9 +26,9 @@
 - python-psutil
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
-- ttf-nerd-fonts-symbols-2048-em
-- ttf-nerd-fonts-symbols-2048-em-mono
+- ttf-nerd-fonts-symbols
 - ttf-nerd-fonts-symbols-common
+- ttf-nerd-fonts-symbols-mono
 - ttf-sourcecodepro-nerd
 
 <p align="center">

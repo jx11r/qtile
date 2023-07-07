@@ -22,9 +22,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install wheel xcffib mypy psutil
-          pip install --no-cache --upgrade --no-build-isolation cairocffi
-          pip install --no-build-isolation git+https://github.com/qtile/qtile.git@master
+          pip install mypy psutil
+          pip install git+https://github.com/qtile/qtile@master
           pip install git+https://github.com/elParaguayo/qtile-extras@main
 
       - run: qtile --version

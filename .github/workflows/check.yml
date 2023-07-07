@@ -8,7 +8,6 @@ jobs:
     strategy:
       matrix:
         python-version: [ '3.11' ]
-
     steps:
       - uses: actions/checkout@v3
         with:
@@ -27,6 +26,12 @@ jobs:
           pip install git+https://github.com/elParaguayo/qtile-extras@main
 
       - run: qtile --version
+
+      - name: "cmd: black"
+        uses: psf/black@stable
+        with:
+          options: "--check --diff"
+          src: "."
 
       - name: "cmd: mypy"
         if: success() || failure()

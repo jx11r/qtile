@@ -29,7 +29,7 @@ floating_layout = layout.Floating(
     fullscreen_border_width=0,
     float_rules=[
         *layout.Floating.default_float_rules,
-        *wm_class([
+        *wm_class(
             "confirmreset",
             "Display",
             "floating",
@@ -44,11 +44,11 @@ floating_layout = layout.Floating(
             "thunar",
             "Xephyr",
             "xfce4-about",
-        ]),  # fmt: skip
-        *title([
+        ),
+        *title(
             "branchdialog",
             "minecraft-launcher",
             "pinentry",
-        ]),  # fmt: skip
+        ),
     ],
 )

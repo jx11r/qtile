@@ -8,12 +8,12 @@ from utils.match import wm_class
 groups, tag = [], bar.tags
 
 for i, (key, layout, matches) in enumerate([
-    ("1", None, wm_class(["wezterm"])),
-    ("2", "max", wm_class(["code"])),
-    ("3", None, wm_class(["insomnia", "obs", "evince"])),
-    ("q", "max", wm_class(["brave-browser", "firefox"])),
-    ("w", "max", wm_class(["discord", "telegram-desktop"])),
-    ("e", "max", wm_class(["spotify", "vlc"])),
+    ("1", None, wm_class("wezterm")),
+    ("2", "max", wm_class("code")),
+    ("3", None, wm_class("insomnia", "obs", "evince")),
+    ("q", "max", wm_class("brave-browser", "firefox")),
+    ("w", "max", wm_class("discord", "telegram-desktop")),
+    ("e", "max", wm_class("spotify", "vlc")),
 ]):  # fmt: skip
     groups.append(Group(key, matches, layout=layout, label=tag[i]))
 

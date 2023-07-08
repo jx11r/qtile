@@ -2,7 +2,7 @@ from libqtile.config import Match
 
 
 class Matches:
-    def __init__(self, property: str, values: list) -> None:
+    def __init__(self, property: str, values: tuple) -> None:
         self.property = property
         self.values = values
 
@@ -10,9 +10,9 @@ class Matches:
         return [Match(**{self.property: i}) for i in self.values]
 
 
-def wm_class(values: list):
+def wm_class(*values: str):
     return Matches("wm_class", values).generate()
 
 
-def title(values: list):
+def title(*values: str):
     return Matches("title", values).generate()

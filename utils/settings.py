@@ -7,7 +7,6 @@ directory = f"{dir.get()}/config.json"
 settings = {
     "bar": "decorated",
     "browser": "",
-    "colorscheme": "catppuccin",
     "terminal": {
         "main": "",
         "floating": "",

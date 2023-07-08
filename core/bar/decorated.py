@@ -3,11 +3,11 @@ from libqtile.lazy import lazy
 
 from core.bar.utils import base, icon_font, powerline, rectangle
 from extras import Clock, GroupBox, TextBox, Volume, modify, widget
-from utils import color
+from utils.palette import palette
 
 bar = {
-    "background": color["bg"],
-    "border_color": color["bg"],
+    "background": palette.base,
+    "border_color": palette.base,
     "border_width": 4,
     "margin": [10, 10, 0, 10],
     "opacity": 1,
@@ -46,16 +46,16 @@ def groups(bg) -> GroupBox:
         background=bg,
         borderwidth=1,
         colors=[
-            color["cyan"],
-            color["magenta"],
-            color["yellow"],
-            color["red"],
-            color["blue"],
-            color["green"],
+            palette.teal,
+            palette.pink,
+            palette.yellow,
+            palette.red,
+            palette.blue,
+            palette.green,
         ],
-        highlight_color=color["bg"],
+        highlight_color=palette.base,
         highlight_method="line",
-        inactive=color["black"],
+        inactive=palette.surface2,
         invert=True,
         padding=7,
         rainbow=True,
@@ -203,19 +203,19 @@ def clock(bg, fg) -> list:
 
 widgets = [
     widget.Spacer(length=2),
-    logo(color["blue"], color["bg"]),
-    sep(color["black"], offset=-8),
+    logo(palette.blue, palette.base),
+    sep(palette.surface2, offset=-8),
     groups(None),
-    sep(color["black"], offset=4, padding=4),
-    *volume(color["magenta"], color["bg"]),
-    *updates(color["red"], color["bg"]),
+    sep(palette.surface2, offset=4, padding=4),
+    *volume(palette.pink, palette.base),
+    *updates(palette.red, palette.base),
     widget.Spacer(),
-    window_name(None, color["fg"]),
+    window_name(None, palette.text),
     widget.Spacer(),
-    *cpu(color["green"], color["bg"]),
-    *ram(color["yellow"], color["bg"]),
-    *disk(color["cyan"], color["bg"]),
-    sep(color["black"]),
-    *clock(color["magenta"], color["bg"]),
+    *cpu(palette.green, palette.base),
+    *ram(palette.yellow, palette.base),
+    *disk(palette.teal, palette.base),
+    sep(palette.surface2),
+    *clock(palette.pink, palette.base),
     widget.Spacer(length=2),
 ]

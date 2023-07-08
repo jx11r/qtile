@@ -4,12 +4,10 @@ from libqtile import hook
 
 from core.bar import bar
 
-margin = sum(bar.margin) if bar else -1
-
 
 @hook.subscribe.startup
 def startup():
-    if margin == 0:
+    if bar and not sum(bar.margin):
         bar.window.window.set_property(
             name="WM_NAME",
             value="QTILE_BAR",

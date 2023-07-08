@@ -3,13 +3,12 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 from extras import float_to_front
-from utils import config
+from utils.config import cfg
 
 mod, alt = "mod4", "mod1"
-terminal = config["terminal"]
 
-if not terminal["main"]:
-    terminal["main"] = guess_terminal()
+if not cfg.term:
+    cfg.term = guess_terminal()
 
 keys = [Key(*key) for key in [  # type: ignore
     # switch between windows
@@ -53,15 +52,15 @@ keys = [Key(*key) for key in [  # type: ignore
     ([mod, alt], "s", lazy.spawn("kill -9 -1")),
 
     # terminal
-    ([mod], "Return", lazy.spawn(terminal["main"])),
-    ([mod, "shift"], "Return", lazy.spawn(terminal["floating"])),
+    ([mod], "Return", lazy.spawn(cfg.term)),
+    ([mod, "shift"], "Return", lazy.spawn(cfg.term2)),
 
     # app launcher
     ([mod, "shift"], "r", lazy.spawn("rofi -show window")),
     ([mod], "r", lazy.spawn("rofi -show drun")),
 
     # web browser
-    ([mod], "b", lazy.spawn(config["browser"])),
+    ([mod], "b", lazy.spawn(cfg.browser)),
 
     # screenshot tool
     ([], "Print", lazy.spawn("gnome-screenshot -i")),

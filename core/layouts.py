@@ -1,7 +1,7 @@
 from libqtile import layout
-from libqtile.config import Match
 
 from utils import color
+from utils.match import title, wm_class
 
 config = {
     "border_focus": color["magenta"],
@@ -29,31 +29,26 @@ floating_layout = layout.Floating(
     fullscreen_border_width=0,
     float_rules=[
         *layout.Floating.default_float_rules,
-        Match(
-            wm_class=[
-                "confirmreset",
-                "Display",
-                "gnome-screenshot",
-                "lxappearance",
-                "makebranch",
-                "maketag",
-                "psterm",
-                "ssh-askpass",
-                "thunar",
-                "Xephyr",
-                "xfce4-about",
-                "wm",
-            ]  # type: ignore
-        ),
-        Match(
-            title=[
-                "branchdialog",
-                "File Operation Progress",
-                "minecraft-launcher",
-                "Open File",
-                "pinentry",
-                "wm",
-            ]  # type: ignore
-        ),
+        *wm_class([
+            "confirmreset",
+            "Display",
+            "floating",
+            "gnome-screenshot",
+            "gpicview",
+            "lxappearance",
+            "makebranch",
+            "maketag",
+            "pavucontrol",
+            "psterm",
+            "ssh-askpass",
+            "thunar",
+            "Xephyr",
+            "xfce4-about",
+        ]),  # fmt: skip
+        *title([
+            "branchdialog",
+            "minecraft-launcher",
+            "pinentry",
+        ]),  # fmt: skip
     ],
 )

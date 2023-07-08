@@ -1,20 +1,21 @@
-from libqtile.config import Group, Key, Match
+from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 
 from core import bar
 from core.keys import keys, mod
+from utils.match import wm_class
 
 groups, tag = [], bar.tags
 
 for i, (key, layout, matches) in enumerate([
-    ("1", None, []),
-    ("2", "max", [Match(wm_class="code")]),
-    ("3", None, []),
-    ("q", "max", [Match(wm_class="brave-browser")]),
-    ("w", "max", [Match(wm_class="discord")]),
-    ("e", "max", []),
+    ("1", None, wm_class(["wezterm"])),
+    ("2", "max", wm_class(["code"])),
+    ("3", None, wm_class(["insomnia", "obs", "evince"])),
+    ("q", "max", wm_class(["brave-browser", "firefox"])),
+    ("w", "max", wm_class(["discord", "telegram-desktop"])),
+    ("e", "max", wm_class(["spotify", "vlc"])),
 ]):  # fmt: skip
-    groups.append(Group(key, matches, layout=layout, label=tag[i]))  # type: ignore
+    groups.append(Group(key, matches, layout=layout, label=tag[i]))
 
 for group in groups:
     keys.extend([

@@ -1,3 +1,5 @@
+import os
+
 from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -5,7 +7,12 @@ from libqtile.utils import guess_terminal
 from extras import float_to_front
 from utils.config import cfg
 
-mod, alt = "mod4", "mod1"
+if int(os.environ.get("QTILE_XEPHYR", 0)) > 0:
+    mod, alt = "mod1", "control"
+    restart = lazy.restart()
+else:
+    mod, alt = "mod4", "mod1"
+    restart = lazy.reload_config()
 
 if not cfg.term:
     cfg.term = guess_terminal()
@@ -45,11 +52,7 @@ keys = [Key(*key) for key in [  # type: ignore
     # qtile stuff
     ([mod, "control"], "b", lazy.hide_show_bar()),
     ([mod, "control"], "s", lazy.shutdown()),
-    ([mod, "control"], "r", lazy.reload_config()),
-    ([mod, alt], "r", lazy.restart()),
-
-    # kill x11 session
-    ([mod, alt], "s", lazy.spawn("kill -9 -1")),
+    ([mod, "control"], "r", restart),
 
     # terminal
     ([mod], "Return", lazy.spawn(cfg.term)),

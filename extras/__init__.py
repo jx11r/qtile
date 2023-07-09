@@ -7,8 +7,8 @@ from qtile_extras.widget.decorations import (  # type: ignore
 )
 
 from extras.clock import Clock
-from extras.function import float_to_front
 from extras.groupbox import GroupBox
+from extras.misc import float_to_front
 from extras.textbox import TextBox
 
 __all__ = [

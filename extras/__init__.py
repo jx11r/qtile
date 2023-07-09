@@ -10,7 +10,6 @@ from extras.clock import Clock
 from extras.function import float_to_front
 from extras.groupbox import GroupBox
 from extras.textbox import TextBox
-from extras.volume import Volume
 
 __all__ = [
     "BorderDecoration",
@@ -21,6 +20,5 @@ __all__ = [
     "PowerLineDecoration",
     "RectDecoration",
     "TextBox",
-    "Volume",
     "widget",
 ]

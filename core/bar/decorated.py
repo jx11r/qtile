@@ -2,7 +2,7 @@ from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
 from core.bar.utils import base, icon_font, powerline, rectangle
-from extras import Clock, GroupBox, TextBox, Volume, modify, widget
+from extras import Clock, GroupBox, TextBox, modify, widget
 from utils.palette import palette
 
 bar = {
@@ -72,17 +72,16 @@ def volume(bg, fg) -> list:
             text="",
             x=4,
         ),
-        modify(
-            Volume,
+        widget.Volume(
             **base(bg, fg),
             **powerline("arrow_right"),
-            commands={
-                "decrease": "pamixer --decrease 5",
-                "increase": "pamixer --increase 5",
-                "get": "pamixer --get-volume-human",
-                "mute": "pamixer --toggle-mute",
-            },
+            check_mute_command="pamixer --get-mute",
+            check_mute_string="true",
+            get_volume_command="pamixer --get-volume-human",
+            mute_command="pamixer --toggle-mute",
             update_interval=0.1,
+            volume_down_command="pamixer --decrease 5",
+            volume_up_command="pamixer --decrease 5",
         ),
     ]
 

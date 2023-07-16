@@ -17,11 +17,10 @@ for i, (key, layout, matches) in enumerate([
 ]):  # fmt: skip
     groups.append(Group(key, matches, layout=layout, label=tag[i]))
 
-for group in groups:
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], group.name, lazy.group[group.name].toscreen(toggle=True)),
+        Key([mod], key, lazy.group[key].toscreen(toggle=True)),
 
         # mod1 + shift + letter of group = move focused window to group
-        Key([mod, "shift"], group.name, lazy.window.togroup(group.name)),
+        Key([mod, "shift"], key, lazy.window.togroup(key)),
     ])  # fmt: skip

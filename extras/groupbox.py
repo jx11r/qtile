@@ -19,7 +19,7 @@ class GroupBox(groupbox.GroupBox):
             "colors",
             False,
             "Receive a list of strings."
-            "Allows each tag to be an independent/unique color when selected, this overrides 'active'.",
+            "Allows each label to have its own independent/unique color when selected, overriding the 'active' parameter.",
         ),
         (
             "icons",

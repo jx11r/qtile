@@ -6,21 +6,22 @@ from os import path
 
 @dataclass
 class Config:
-    bar: str | None = "decorated"
+    bar: str = "shapes"
+    bar2: str = ""
     browser: str = ""
     term: str | None = ""
-    term2: str | None = ""
+    term2: str = ""
     wallpaper: str = ""
 
 
-def get_directory():
-    XDG = path.expanduser("~/.config/qtile")
-    if path.exists(XDG):
-        return XDG
+def directory():
+    xdg = path.expanduser("~/.config/qtile")
+    if path.exists(xdg):
+        return xdg
     return os.getcwd()
 
 
-file = f"{get_directory()}/cfg.json"
+file = path.join(directory(), "cfg.json")
 
 if not path.exists(file):
     cfg = Config()

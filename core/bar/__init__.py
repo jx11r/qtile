@@ -1,8 +1,5 @@
-from core.bar import theme
-
-bar, tags = theme.bar
+from core.bar.base import Bar
 
 __all__ = [
-    "bar",
-    "tags",
+    "Bar",
 ]

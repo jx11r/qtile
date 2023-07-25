@@ -18,9 +18,6 @@ class Clock(clock.Clock):
         self.add_callbacks({"Button1": self.toggle})
 
     def toggle(self):
-        if self.toggled:
-            self.format = self.short_format
-        else:
-            self.format = self.long_format
+        self.format = self.short_format if self.toggled else self.long_format
         self.toggled = not self.toggled
         self.update(self.poll())

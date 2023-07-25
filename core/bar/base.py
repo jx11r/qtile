@@ -22,10 +22,11 @@ class Bar:
     def themes(self) -> set[str]:
         path = join(directory(), "core", "bar")
         excluded_files = {"__init__.py", "base.py"}
-        files: list[str] = []
-        for file in listdir(path):
-            if isfile(join(path, file)) and file not in excluded_files:
-                files.append(file.rstrip(".py"))
+        files: list[str] = [
+            file.rstrip(".py")
+            for file in listdir(path)
+            if isfile(join(path, file)) and file not in excluded_files
+        ]
         return set(files)
 
     @property
@@ -37,9 +38,7 @@ class Bar:
         return module.bar
 
     def create(self) -> bar.BarType | None:
-        if self.config:
-            return bar.Bar(**self.config)
-        return None
+        return bar.Bar(**self.config) if self.config else None
 
 
 def base(bg: str | None, fg: str) -> dict:

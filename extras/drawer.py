@@ -41,11 +41,10 @@ class TextFrame(drawer.TextFrame):
                 self.drawer.rounded_fillrect(*opts)
             else:
                 self.drawer.fillrect(*opts)
+        elif rounded:
+            self.drawer.rounded_rectangle(*opts)
         else:
-            if rounded:
-                self.drawer.rounded_rectangle(*opts)
-            else:
-                self.drawer.rectangle(*opts)
+            self.drawer.rectangle(*opts)
         self.drawer.ctx.stroke()
         self.layout.draw(x + self.pad_left, y + self.pad_top)
 

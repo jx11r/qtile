@@ -20,21 +20,20 @@ class TextBox(textbox.TextBox):
         self.add_y = y
 
     def calculate_length(self):
-        if self.text:
-            if self.bar.horizontal:
-                return (
-                    min(self.layout.width, self.bar.width)
-                    + self.actual_padding * 2
-                    + self.add_offset
-                )
-            else:
-                return (
-                    min(self.layout.width, self.bar.height)
-                    + self.actual_padding * 2
-                    + self.add_offset
-                )
-        else:
+        if not self.text:
             return 0
+        if self.bar.horizontal:
+            return (
+                min(self.layout.width, self.bar.width)
+                + self.actual_padding * 2
+                + self.add_offset
+            )
+        else:
+            return (
+                min(self.layout.width, self.bar.height)
+                + self.actual_padding * 2
+                + self.add_offset
+            )
 
     def draw(self):
         if not self.can_draw():

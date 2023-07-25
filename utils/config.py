@@ -16,9 +16,7 @@ class Config:
 
 def directory():
     xdg = path.expanduser("~/.config/qtile")
-    if path.exists(xdg):
-        return xdg
-    return os.getcwd()
+    return xdg if path.exists(xdg) else os.getcwd()
 
 
 file = path.join(directory(), "cfg.json")

@@ -1,7 +1,7 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.bar.utils import base, icon_font, powerline, rectangle
+from core.bar.base import base, icon_font, powerline, rectangle
 from extras import Clock, GroupBox, TextBox, modify, widget
 from utils.palette import palette
 
@@ -13,8 +13,6 @@ bar = {
     "opacity": 1,
     "size": 18,
 }
-
-tags = ["", "", "", "󰈹", "󰇮", ""]
 
 
 def sep(fg, offset=0, padding=8) -> TextBox:
@@ -200,21 +198,22 @@ def clock(bg, fg) -> list:
     ]
 
 
-widgets = [
-    widget.Spacer(length=2),
-    logo(palette.blue, palette.base),
-    sep(palette.surface2, offset=-8),
-    groups(None),
-    sep(palette.surface2, offset=4, padding=4),
-    *volume(palette.pink, palette.base),
-    *updates(palette.red, palette.base),
-    widget.Spacer(),
-    window_name(None, palette.text),
-    widget.Spacer(),
-    *cpu(palette.green, palette.base),
-    *ram(palette.yellow, palette.base),
-    *disk(palette.teal, palette.base),
-    sep(palette.surface2),
-    *clock(palette.pink, palette.base),
-    widget.Spacer(length=2),
-]
+def widgets():
+    return [
+        widget.Spacer(length=2),
+        logo(palette.blue, palette.base),
+        sep(palette.surface2, offset=-8),
+        groups(None),
+        sep(palette.surface2, offset=4, padding=4),
+        *volume(palette.pink, palette.base),
+        *updates(palette.red, palette.base),
+        widget.Spacer(),
+        window_name(None, palette.text),
+        widget.Spacer(),
+        *cpu(palette.green, palette.base),
+        *ram(palette.yellow, palette.base),
+        *disk(palette.teal, palette.base),
+        sep(palette.surface2),
+        *clock(palette.pink, palette.base),
+        widget.Spacer(length=2),
+    ]

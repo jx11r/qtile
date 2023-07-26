@@ -1,33 +1,38 @@
 import json
-import os
 from dataclasses import asdict, dataclass
-from os import path
+from os import getcwd
+from os.path import exists, expanduser, join
 
 
 @dataclass
 class Config:
-    bar: str | None = "decorated"
+    bar: str = "shapes"
+    bar2: str = ""
     browser: str = ""
     term: str | None = ""
-    term2: str | None = ""
+    term2: str = ""
     wallpaper: str = ""
 
+    @staticmethod
+    def path() -> str:
+        xdg = expanduser("~/.config/qtile")
+        return xdg if exists(xdg) else getcwd()
 
-def get_directory():
-    XDG = path.expanduser("~/.config/qtile")
-    if path.exists(XDG):
-        return XDG
-    return os.getcwd()
+    @classmethod
+    def load(cls) -> "Config":
+        file = join(cls.path(), "cfg.json")
+        if not exists(file):
+            cls.generate(file)
+            return cls()
+        with open(file, "r") as f:
+            content = json.load(f)
+            return cls(**content)
+
+    @classmethod
+    def generate(cls, file: str) -> None:
+        with open(file, "w") as f:
+            content = asdict(cls())
+            f.write(json.dumps(content, indent=2))
 
 
-file = f"{get_directory()}/cfg.json"
-
-if not path.exists(file):
-    cfg = Config()
-    with open(file, "w") as f:
-        content = asdict(cfg)
-        f.write(json.dumps(content, indent=2))
-else:
-    with open(file, "r") as f:
-        content = json.load(f)
-        cfg = Config(**content)
+cfg = Config.load()

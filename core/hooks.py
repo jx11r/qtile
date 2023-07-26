@@ -2,18 +2,22 @@ import asyncio
 
 from libqtile import hook
 
-from core.bar import bar
+from core.screens import screens
+
+bars = [screen.top for screen in screens]
+margins = [sum(bar.margin) if bar else -1 for bar in bars]  # type: ignore
 
 
 @hook.subscribe.startup
 def startup():
-    if bar and not sum(bar.margin):
-        bar.window.window.set_property(
-            name="WM_NAME",
-            value="QTILE_BAR",
-            type="STRING",
-            format=8,
-        )
+    for bar, margin in zip(bars, margins):
+        if not margin:
+            bar.window.window.set_property(
+                name="WM_NAME",
+                value="QTILE_BAR",
+                type="STRING",
+                format=8,
+            )
 
 
 @hook.subscribe.client_new

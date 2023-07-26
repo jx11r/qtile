@@ -1,5 +1,5 @@
 from core import hooks
-from core.bar.utils import defaults
+from core.bar.base import defaults
 from core.groups import groups
 from core.keys import keys
 from core.layouts import floating_layout, layouts

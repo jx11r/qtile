@@ -41,6 +41,7 @@ floating_layout = layout.Floating(
             "pavucontrol",
             "psterm",
             "ssh-askpass",
+            "steam",
             "thunar",
             "Xephyr",
             "xfce4-about",

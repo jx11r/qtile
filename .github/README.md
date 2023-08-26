@@ -14,7 +14,7 @@
   </a>
 </div>
 <div align="center">
-  <img src="https://raw.githubusercontent.com/jx11r/src/!/img/qtile.png" />
+  <img src="https://raw.githubusercontent.com/jx11r/src/i/img/qtile.png" />
 </div>
 
 ## Requirements

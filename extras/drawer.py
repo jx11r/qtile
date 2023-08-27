@@ -1,4 +1,4 @@
-from libqtile import drawer
+from libqtile.backend.base import drawer
 
 
 def framed(self, border_width, border_color, pad_x, pad_y, highlight_color=None):

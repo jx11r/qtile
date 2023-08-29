@@ -1,4 +1,4 @@
-from core import (  # noqa: F401
+from core import (
     floating_layout,
     groups,
     hooks,
@@ -16,4 +16,4 @@ cursor_warp = False
 follow_mouse_focus = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
-wmname = "LG3D"
+wmname = "qtile"

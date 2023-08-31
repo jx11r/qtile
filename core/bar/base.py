@@ -8,8 +8,8 @@ from extras import PowerLineDecoration, RectDecoration
 from utils.config import cfg
 
 defaults = {
-    "font": "SauceCodePro Nerd Font Medium",
-    "fontsize": 10,
+    "font": "Hasklug Nerd Font Mono Medium",
+    "fontsize": 11,
     "padding": None,
 }
 
@@ -48,12 +48,12 @@ def base(bg: str | None, fg: str) -> dict:
     }
 
 
-def icon_font(size=15) -> dict:
-    font = "SauceCodePro Nerd Font"
+def symbol(size=16) -> dict:
+    font = "Symbols Nerd Font Mono Regular"
     return {"font": font, "fontsize": size}
 
 
-def powerline(path: str | list[tuple], size=9) -> dict:
+def powerline(path: str | list[tuple], size=10) -> dict:
     return { "decorations": [
         PowerLineDecoration(
             path=path,

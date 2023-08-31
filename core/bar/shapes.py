@@ -1,7 +1,7 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.bar.base import base, icon_font, powerline, rectangle
+from core.bar.base import base, symbol, powerline, rectangle
 from extras import Clock, GroupBox, TextBox, modify, widget
 from utils.palette import palette
 
@@ -11,14 +11,14 @@ bar = {
     "border_width": 4,
     "margin": [10, 10, 0, 10],
     "opacity": 1,
-    "size": 18,
+    "size": 20,
 }
 
 
-def sep(fg, offset=0, padding=8) -> TextBox:
+def sep(fg, offset=0, padding=10) -> TextBox:
     return TextBox(
         **base(None, fg),
-        **icon_font(),
+        **symbol(11),
         offset=offset,
         padding=padding,
         text="󰇙",
@@ -26,21 +26,19 @@ def sep(fg, offset=0, padding=8) -> TextBox:
 
 
 def logo(bg, fg) -> TextBox:
-    return modify(
-        TextBox,
+    return TextBox(
         **base(bg, fg),
-        **icon_font(),
+        **symbol(),
         **rectangle(),
         mouse_callbacks={"Button1": lazy.restart()},
-        offset=4,
-        padding=17,
+        padding=20,
         text="",
     )
 
 
 def groups(bg) -> GroupBox:
     return GroupBox(
-        **icon_font(),
+        **symbol(),
         background=bg,
         borderwidth=1,
         colors=[
@@ -55,7 +53,7 @@ def groups(bg) -> GroupBox:
         highlight_method="line",
         inactive=palette.surface2,
         invert=True,
-        padding=7,
+        padding=6,
         rainbow=True,
     )
 
@@ -65,10 +63,12 @@ def volume(bg, fg) -> list:
         modify(
             TextBox,
             **base(bg, fg),
-            **icon_font(),
+            **symbol(),
             **rectangle("left"),
+            offset=-17,
+            padding=15,
             text="",
-            x=4,
+            x=-2,
         ),
         widget.Volume(
             **base(bg, fg),
@@ -79,7 +79,7 @@ def volume(bg, fg) -> list:
             mute_command="pamixer --toggle-mute",
             update_interval=0.1,
             volume_down_command="pamixer --decrease 5",
-            volume_up_command="pamixer --decrease 5",
+            volume_up_command="pamixer --increase 5",
         ),
     ]
 
@@ -88,10 +88,10 @@ def updates(bg, fg) -> list:
     return [
         TextBox(
             **base(bg, fg),
-            **icon_font(),
+            **symbol(14),
             offset=-1,
             text="",
-            x=-5,
+            x=-2,
         ),
         widget.CheckUpdates(
             **base(bg, fg),
@@ -108,9 +108,9 @@ def updates(bg, fg) -> list:
     ]
 
 
-def window_name(bg, fg) -> object:
+def window_name(fg) -> object:
     return widget.WindowName(
-        **base(bg, fg),
+        **base(None, fg),
         format="{name}",
         max_chars=60,
         width=CALCULATED,
@@ -122,11 +122,11 @@ def cpu(bg, fg) -> list:
         modify(
             TextBox,
             **base(bg, fg),
-            **icon_font(),
+            **symbol(14),
             **rectangle("left"),
-            offset=3,
+            offset=-13,
+            padding=15,
             text="󰍛",
-            x=5,
         ),
         widget.CPU(
             **base(bg, fg),
@@ -140,17 +140,16 @@ def ram(bg, fg) -> list:
     return [
         TextBox(
             **base(bg, fg),
-            **icon_font(),
-            offset=-2,
+            **symbol(14),
+            offset=-1,
             padding=5,
             text="󰘚",
-            x=-2,
         ),
         widget.Memory(
             **base(bg, fg),
             **powerline("arrow_right"),
             format="{MemUsed: .0f}{mm} ",
-            padding=-1,
+            padding=-3,
         ),
     ]
 
@@ -159,10 +158,10 @@ def disk(bg, fg) -> list:
     return [
         TextBox(
             **base(bg, fg),
-            **icon_font(),
+            **symbol(14),
             offset=-1,
             text="",
-            x=-5,
+            x=-2,
         ),
         widget.DF(
             **base(bg, fg),
@@ -181,11 +180,11 @@ def clock(bg, fg) -> list:
         modify(
             TextBox,
             **base(bg, fg),
-            **icon_font(),
+            **symbol(14),
             **rectangle("left"),
-            offset=2,
+            offset=-14,
+            padding=15,
             text="",
-            x=4,
         ),
         modify(
             Clock,
@@ -193,7 +192,7 @@ def clock(bg, fg) -> list:
             **rectangle("right"),
             format="%A - %I:%M %p ",
             long_format="%B %-d, %Y ",
-            padding=6,
+            padding=7,
         ),
     ]
 
@@ -202,13 +201,13 @@ def widgets():
     return [
         widget.Spacer(length=2),
         logo(palette.blue, palette.base),
-        sep(palette.surface2, offset=-8),
+        sep(palette.surface2, offset=-14),
         groups(None),
-        sep(palette.surface2, offset=4, padding=4),
+        sep(palette.surface2, offset=8, padding=2),
         *volume(palette.pink, palette.base),
         *updates(palette.red, palette.base),
         widget.Spacer(),
-        window_name(None, palette.text),
+        window_name(palette.text),
         widget.Spacer(),
         *cpu(palette.green, palette.base),
         *ram(palette.yellow, palette.base),

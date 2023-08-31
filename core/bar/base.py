@@ -15,7 +15,7 @@ defaults = {
 
 
 class Bar:
-    def __init__(self, theme: str) -> None:
+    def __init__(self, theme: str):
         self.theme = theme
 
     @property
@@ -53,7 +53,7 @@ def symbol(size=16) -> dict:
     return {"font": font, "fontsize": size}
 
 
-def powerline(path: str | list[tuple], size=10) -> dict:
+def powerline(path: str | list[tuple], size=10):
     return { "decorations": [
         PowerLineDecoration(
             path=path,
@@ -62,7 +62,7 @@ def powerline(path: str | list[tuple], size=10) -> dict:
     ]}  # fmt: skip
 
 
-def rectangle(side: str = "") -> dict:
+def rectangle(side=""):
     return { "decorations": [
         RectDecoration(
             filled = True,

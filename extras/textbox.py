@@ -1,23 +1,15 @@
 import math
 
 from libqtile import bar
-from libqtile.widget import textbox
+from libqtile.widget import base, textbox
 
 
-class TextBox(textbox.TextBox):
-    def __init__(
-        self,
-        offset=0,
-        text=" ",
-        width=bar.CALCULATED,
-        x=0,
-        y=0,
-        **config,
-    ):
+class _TextBox(base._TextBox):
+    def __init__(self, text=" ", width=bar.CALCULATED, **config):
         super().__init__(text, width, **config)
-        self.add_offset = offset
-        self.add_x = x
-        self.add_y = y
+        self.add_offset = config.pop("offset", 0)
+        self.add_x = config.pop("x", 0)
+        self.add_y = config.pop("y", 0)
 
     def calculate_length(self):
         if self.text:
@@ -92,3 +84,8 @@ class TextBox(textbox.TextBox):
             else:
                 interval = self.scroll_interval
             self._scroll_timer = self.timeout_add(interval, self.do_scroll)
+
+
+class TextBox(_TextBox, textbox.TextBox):
+    def __init__(self, text=" ", width=bar.CALCULATED, **config):
+        super().__init__(text, width, **config)

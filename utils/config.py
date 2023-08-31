@@ -29,7 +29,7 @@ class Config:
             return cls(**content)
 
     @classmethod
-    def generate(cls, file: str) -> None:
+    def generate(cls, file: str):
         with open(file, "w") as f:
             content = asdict(cls())
             f.write(json.dumps(content, indent=2))

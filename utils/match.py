@@ -2,7 +2,7 @@ from libqtile.config import Match
 
 
 class Matches:
-    def __init__(self, property: str, values: tuple) -> None:
+    def __init__(self, property: str, values: tuple):
         self.property = property
         self.values = values
 

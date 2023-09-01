@@ -19,6 +19,7 @@
 
 ## Requirements
 - brightnessctl (optional)
+- otf-hasklig-nerd
 - pacman-contrib
 - pamixer
 - playerctl (optional)
@@ -27,7 +28,6 @@
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
 - ttf-nerd-fonts-symbols
-- ttf-sourcecodepro-nerd
 
 <p align="center">
   <a href="https://github.com/jx11r/qtile/blob/main/LICENSE">

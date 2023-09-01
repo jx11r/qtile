@@ -31,7 +31,7 @@ logo = lambda bg, fg: TextBox(
     **rectangle(),
     mouse_callbacks={"Button1": lazy.restart()},
     padding=20,
-    text="",
+    text="",
 )
 
 groups = lambda bg: GroupBox(
@@ -91,12 +91,12 @@ updates = lambda bg, fg: [
         **rectangle("right"),
         colour_have_updates=fg,
         colour_no_updates=fg,
+        custom_command="checkupdates",
         display_format="{updates} updates  ",
-        distro="Arch_checkupdates",
         initial_text="No updates  ",
         no_update_string="No updates  ",
         padding=0,
-        update_interval=3600,
+        update_interval=21600,
     ),
 ]
 

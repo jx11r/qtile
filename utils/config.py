@@ -1,6 +1,6 @@
 import json
 from dataclasses import asdict, dataclass
-from os import getcwd
+from os import getcwd, environ
 from os.path import exists, expanduser, join
 
 
@@ -12,6 +12,10 @@ class Config:
     term: str | None = ""
     term2: str = ""
     wallpaper: str = ""
+
+    @property
+    def is_xephyr(self):
+        return int(environ.get("QTILE_XEPHYR", 0)) > 0
 
     @staticmethod
     def path() -> str:

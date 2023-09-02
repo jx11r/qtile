@@ -4,6 +4,7 @@ from libqtile.lazy import lazy
 from core.bar.base import base, symbol, powerline, rectangle
 from extras import Clock, GroupBox, TextBox, modify, widget
 from utils.palette import palette
+from utils.config import cfg
 
 bar = {
     "background": palette.base,
@@ -91,7 +92,7 @@ updates = lambda bg, fg: [
         **rectangle("right"),
         colour_have_updates=fg,
         colour_no_updates=fg,
-        custom_command="checkupdates",
+        custom_command=" " if cfg.is_xephyr else "checkupdates",
         display_format="{updates} updates  ",
         initial_text="No updates  ",
         no_update_string="No updates  ",

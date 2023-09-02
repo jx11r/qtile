@@ -1,5 +1,3 @@
-from os import environ
-
 from libqtile.config import Key
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -7,7 +5,7 @@ from libqtile.utils import guess_terminal
 from extras import float_to_front
 from utils.config import cfg
 
-if int(environ.get("QTILE_XEPHYR", 0)) > 0:
+if cfg.is_xephyr:
     mod, alt = "mod1", "control"
     restart = lazy.restart()
 else:

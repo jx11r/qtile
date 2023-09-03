@@ -32,7 +32,7 @@ logo = lambda bg, fg: TextBox(
     **rectangle(),
     mouse_callbacks={"Button1": lazy.restart()},
     padding=20,
-    text="",
+    text="",
 )
 
 groups = lambda bg: GroupBox(

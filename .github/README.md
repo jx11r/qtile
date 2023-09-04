@@ -27,7 +27,7 @@
 - python-psutil
 - qtile-extras-git (AUR)
 - qtile-git (AUR)
-- ttf-nerd-fonts-symbols
+- ttf-nerd-fonts-symbols-mono
 
 <p align="center">
   <a href="https://github.com/jx11r/qtile/blob/main/LICENSE">

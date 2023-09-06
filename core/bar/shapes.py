@@ -97,7 +97,7 @@ updates = lambda bg, fg: [
         initial_text="No updates  ",
         no_update_string="No updates  ",
         padding=0,
-        update_interval=21600,
+        update_interval=3600,
     ),
 ]
 
@@ -182,7 +182,7 @@ clock = lambda bg, fg: [
 
 
 widgets = lambda: [
-    widget.Spacer(length=2),
+    widget.Spacer(length=1),
     logo(palette.blue, palette.base),
     sep(palette.surface2, offset=-14),
     groups(None),
@@ -197,5 +197,5 @@ widgets = lambda: [
     *disk(palette.teal, palette.base),
     sep(palette.surface2),
     *clock(palette.pink, palette.base),
-    widget.Spacer(length=2),
+    widget.Spacer(length=1),
 ]

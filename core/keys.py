@@ -18,31 +18,30 @@ if not cfg.term:
 keys = [Key(*key) for key in [  # type: ignore
     # switch between windows
     ([mod], "h", lazy.layout.left()),
-    ([mod], "l", lazy.layout.right()),
-    ([mod], "j", lazy.layout.down()),
-    ([mod], "k", lazy.layout.up()),
+    ([mod], "n", lazy.layout.down()),
+    ([mod], "e", lazy.layout.up()),
+    ([mod], "i", lazy.layout.right()),
 
     # move windows between columns
     ([mod, "shift"], "h", lazy.layout.shuffle_left()),
-    ([mod, "shift"], "l", lazy.layout.shuffle_right()),
-    ([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    ([mod, "shift"], "k", lazy.layout.shuffle_up()),
+    ([mod, "shift"], "n", lazy.layout.shuffle_down()),
+    ([mod, "shift"], "e", lazy.layout.shuffle_up()),
+    ([mod, "shift"], "i", lazy.layout.shuffle_right()),
 
     # increase/decrease window size
-    ([mod], "i", lazy.layout.grow()),
-    ([mod], "m", lazy.layout.shrink()),
+    ([mod], "u", lazy.layout.shrink()),
+    ([mod], "y", lazy.layout.grow()),
 
     # window management
     ([mod, "shift"], "space", lazy.layout.flip()),
-    ([mod], "o", lazy.layout.maximize()),
-    ([mod], "n", lazy.layout.normalize()),
+    ([mod], "m", lazy.layout.maximize()),
     ([mod], "a", lazy.window.kill()),
     ([], "F11", lazy.window.toggle_fullscreen()),
 
     # floating window management
     ([mod], "space", lazy.window.toggle_floating()),
+    ([mod], "s", lazy.function(float_to_front)),
     ([mod], "c", lazy.window.center()),
-    ([mod], "f", lazy.function(float_to_front)),
 
     # toggle between layouts
     ([mod], "Tab", lazy.next_layout()),

@@ -12,7 +12,7 @@ for key, label, layout, matches in [
     ("3", "", None, wm_class("insomnia", "obs", "evince")),
     ("q", "󰈹", "max", wm_class("brave-browser", "firefox")),
     ("w", "󰇮", "max", wm_class("discord", "telegram-desktop")),
-    ("e", "", "max", wm_class("spotify", "vlc")),
+    ("f", "", "max", wm_class("spotify", "vlc")),
 ]:
     groups.append(Group(key, matches, label=label, layout=layout))
 

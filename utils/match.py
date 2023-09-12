@@ -2,17 +2,16 @@ from libqtile.config import Match
 
 
 class Matches:
-    def __init__(self, property: str, values: tuple):
+    def __init__(self, property: str):
         self.property = property
-        self.values = values
 
-    def generate(self) -> list[Match]:
-        return [Match(**{self.property: i}) for i in self.values]
+    def generate(self, values: tuple) -> list[Match]:
+        return [Match(**{self.property: i}) for i in values]
 
 
 def wm_class(*values: str):
-    return Matches("wm_class", values).generate()
+    return Matches("wm_class").generate(values)
 
 
 def title(*values: str):
-    return Matches("title", values).generate()
+    return Matches("title").generate(values)

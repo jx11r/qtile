@@ -21,6 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libxkbcommon-dev
+
           pip install mypy psutil
           pip install git+https://github.com/qtile/qtile@master
           pip install git+https://github.com/elParaguayo/qtile-extras@main

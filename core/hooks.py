@@ -5,7 +5,7 @@ from libqtile import hook
 from core.screens import screens
 
 bars = [screen.top for screen in screens]
-margins = [sum(bar.margin) if bar else -1 for bar in bars]  # type: ignore
+margins = [sum(bar.margin) if bar else -1 for bar in bars]
 
 
 @hook.subscribe.startup

@@ -1,10 +1,10 @@
 from libqtile.bar import CALCULATED
 from libqtile.lazy import lazy
 
-from core.bar.base import base, symbol, powerline, rectangle
+from core.bar.base import base, powerline, rectangle, symbol
 from extras import Clock, GroupBox, TextBox, modify, widget
-from utils.palette import palette
 from utils.config import cfg
+from utils.palette import palette
 
 bar = {
     "background": palette.base,

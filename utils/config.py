@@ -1,6 +1,6 @@
 import json
 from dataclasses import asdict, dataclass
-from os import getcwd, environ
+from os import environ, getcwd
 from os.path import exists, expanduser, join
 
 

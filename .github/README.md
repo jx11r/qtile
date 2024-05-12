@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Qtile</h1>
   <a href="https://github.com/qtile/qtile">
-    <img src="https://img.shields.io/badge/qtile-0.24.0-informational.svg?style=for-the-badge&logo=python&color=b4befe&logoColor=cdd6f4&labelColor=1e1e2e" />
+    <img src="https://img.shields.io/badge/qtile-0.25.0-informational.svg?style=for-the-badge&logo=python&color=b4befe&logoColor=cdd6f4&labelColor=1e1e2e" />
   </a>
   <a href="#Qtile">
     <img src="https://img.shields.io/github/repo-size/jx11r/qtile?style=for-the-badge&logo=gitbook&color=f2cdcd&logoColor=cdd6f4&labelColor=1e1e2e" />

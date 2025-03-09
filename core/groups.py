@@ -7,12 +7,12 @@ from utils.match import wm_class
 groups: list[Group] = []
 
 for key, label, layout, matches in [
-    ("1", "", None, wm_class("wezterm")),
+    ("1", "", None, wm_class()),
     ("2", "", "max", wm_class("code")),
-    ("3", "", None, wm_class("insomnia", "obs", "evince")),
+    ("3", "", None, wm_class("insomnia", "obs", "evince")),
     ("q", "󰈹", "max", wm_class("brave-browser", "firefox")),
-    ("w", "󰇮", "max", wm_class("discord", "telegram-desktop")),
-    ("f", "", "max", wm_class("spotify", "vlc")),
+    ("w", "󰇮", "max", wm_class("discord", "telegram-desktop", "zapzap")),
+    ("f", "", "max", wm_class("cider", "vlc")),
 ]:
     groups.append(Group(key, matches, label=label, layout=layout))
 

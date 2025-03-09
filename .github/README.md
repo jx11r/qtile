@@ -17,6 +17,10 @@
   <img src="https://raw.githubusercontent.com/jx11r/src/i/gh/qtile.png" />
 </div>
 
+> [!WARNING]
+> This configuration is adapted to my personal needs, so it is not recommended to use it directly.
+> I suggest forking the repository and modifying it according to your preferences.
+
 ## Requirements
 - brightnessctl (optional)
 - otf-hasklig-nerd

@@ -1,16 +1,16 @@
 <div align="center">
   <h1>Qtile</h1>
   <a href="https://github.com/qtile/qtile">
-    <img src="https://img.shields.io/badge/qtile-0.30.0-informational.svg?style=for-the-badge&logo=python&color=b4befe&logoColor=cdd6f4&labelColor=1e1e2e" />
+    <img src="https://img.shields.io/badge/qtile-0.30.0-informational.svg?style=for-the-badge&logo=python&color=7daea3&logoColor=ddc7a1&labelColor=282828" />
   </a>
   <a href="#Qtile">
-    <img src="https://img.shields.io/github/repo-size/jx11r/qtile?style=for-the-badge&logo=gitbook&color=f2cdcd&logoColor=cdd6f4&labelColor=1e1e2e" />
+    <img src="https://img.shields.io/github/repo-size/jx11r/qtile?style=for-the-badge&logo=gitbook&color=d8a657&logoColor=ddc7a1&labelColor=282828" />
   </a>
   <a href="https://github.com/jx11r/qtile/stargazers">
-    <img src="https://img.shields.io/github/stars/jx11r/qtile?style=for-the-badge&logo=starship&color=94e2d5&logoColor=cdd6f4&labelColor=1e1e2e" />
+    <img src="https://img.shields.io/github/stars/jx11r/qtile?style=for-the-badge&logo=starship&color=a9b665&logoColor=ddc7a1&labelColor=282828" />
   </a>
   <a href="https://discord.gg/MmrhPCrPM9">
-    <img src="https://img.shields.io/discord/955163559086665728?style=for-the-badge&logo=discord&color=cba6f7&logoColor=cdd6f4&labelColor=1e1e2e" />
+    <img src="https://img.shields.io/discord/955163559086665728?style=for-the-badge&logo=discord&color=d3869b&logoColor=ddc7a1&labelColor=282828" />
   </a>
 </div>
 <div align="center">
@@ -31,6 +31,6 @@
 
 <p align="center">
   <a href="https://github.com/jx11r/qtile/blob/main/LICENSE">
-    <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL-3.0&colorA=1e1e2e&colorB=b4befe"/>
+    <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL-3.0&colorA=282828&colorB=89b482"/>
   </a>
 </p>

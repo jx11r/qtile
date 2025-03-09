@@ -32,5 +32,19 @@ class Catppuccin:
     mantle    = "#181825"
     crust     = "#11111b"
 
+# https://user-images.githubusercontent.com/58662350/213884019-cbcd5f00-5bef-4a37-9139-0570770330b6.png
+@dataclass(frozen=True)
+class GruvboxMaterial:
+    base   = "#282828"
+    black  = "#45403d"
+    text   = "#ddc7a1"
+    red    = "#ea6962"
+    orange = "#e78a4e"
+    yellow = "#d8a657"
+    green  = "#a9b665"
+    aqua   = "#89b482"
+    blue   = "#7daea3"
+    purple = "#d3869b"
+    grey   = "#7c6f64"
 
-palette = Catppuccin()
+palette = GruvboxMaterial()

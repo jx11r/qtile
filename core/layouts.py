@@ -1,11 +1,8 @@
 from libqtile import layout
 
 from utils.match import title, wm_class
-from utils.palette import palette
 
 config = {
-    "border_focus": palette.pink,
-    "border_normal": palette.base,
     "border_width": 0,
     "margin": 10,
     "single_border_width": 0,
@@ -23,8 +20,6 @@ layouts = [
 ]
 
 floating_layout = layout.Floating(
-    border_focus=palette.subtext1,
-    border_normal=palette.base,
     border_width=0,
     fullscreen_border_width=0,
     float_rules=[

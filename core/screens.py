@@ -7,11 +7,11 @@ screens = [
     Screen(
         wallpaper=cfg.wallpaper,
         wallpaper_mode="fill",
-        top=Bar(cfg.bar).create(),
+        top=Bar(cfg.bar["screen1"]).create(),
     ),
     Screen(
         wallpaper=cfg.wallpaper,
         wallpaper_mode="fill",
-        top=Bar(cfg.bar2).create(),
+        top=Bar(cfg.bar["screen2"]).create(),
     ),
 ]

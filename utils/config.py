@@ -1,17 +1,15 @@
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from os import environ, getcwd
 from os.path import exists, expanduser, join
 
 
 @dataclass
 class Config:
-    bar: str = "shapes"
-    bar2: str = ""
-    browser: str = ""
-    term: str | None = ""
-    term2: str = ""
+    browser: str = "brave"
     wallpaper: str = ""
+    bar: dict = field(default_factory=lambda: {"screen1": "shapes", "screen2": ""})
+    term: dict = field(default_factory=lambda: {"main": "", "alt": ""})
 
     @property
     def is_xephyr(self):
@@ -28,7 +26,7 @@ class Config:
         if not exists(file):
             cls.generate(file)
             return cls()
-        with open(file, "r") as f:
+        with open(file) as f:
             content = json.load(f)
             return cls(**content)
 

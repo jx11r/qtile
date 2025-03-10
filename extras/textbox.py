@@ -20,11 +20,13 @@ class _TextBox(base._TextBox):
                     + self.add_offset
                 )
             else:
-                return (
-                    min(self.layout.width, self.bar.height)
-                    + self.actual_padding * 2
-                    + self.add_offset
-                )
+                if self.rotate:
+                    return (
+                        min(self.layout.width, self.bar.height)
+                        + self.actual_padding * 2
+                    )
+                else:
+                    return self.layout.height + self.actual_padding * 2
         else:
             return 0
 
@@ -36,14 +38,20 @@ class _TextBox(base._TextBox):
         # size = self.bar.height if self.bar.horizontal else self.bar.width
         self.drawer.ctx.save()
 
-        if not self.bar.horizontal:
+        if not self.bar.horizontal and self.rotate:
             # Left bar reads bottom to top
-            if self.bar.screen.left is self.bar:
+            # Can be overriden to read bottom to top all the time with vertical_text_direction
+            if (
+                self.bar.screen.left is self.bar and self.direction == "default"
+            ) or self.direction == "btt":
                 self.drawer.ctx.rotate(-90 * math.pi / 180.0)
                 self.drawer.ctx.translate(-self.length, 0)
 
             # Right bar is top to bottom
-            else:
+            # Can be overriden to read top to bottom all the time with vertical_text_direction
+            elif (
+                self.bar.screen.right is self.bar and self.direction == "default"
+            ) or self.direction == "ttb":
                 self.drawer.ctx.translate(self.bar.width, 0)
                 self.drawer.ctx.rotate(90 * math.pi / 180.0)
 
@@ -58,7 +66,13 @@ class _TextBox(base._TextBox):
             )
             self.drawer.ctx.clip()
 
-        size = self.bar.height if self.bar.horizontal else self.bar.width
+        if self.bar.horizontal:
+            size = self.bar.height
+        else:
+            if self.rotate:
+                size = self.bar.width
+            else:
+                size = self.layout.height + self.actual_padding * 2
 
         self.layout.draw(
             (self.actual_padding or 0) - self._scroll_offset + self.add_x,

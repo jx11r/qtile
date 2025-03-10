@@ -12,8 +12,8 @@ else:
     mod, alt = "mod4", "mod1"
     restart = lazy.reload_config()
 
-if not cfg.term:
-    cfg.term = guess_terminal()
+if not cfg.term["main"]:
+    cfg.term["main"] = guess_terminal()
 
 keys = [Key(*key) for key in [  # type: ignore
     # switch between windows
@@ -52,8 +52,8 @@ keys = [Key(*key) for key in [  # type: ignore
     ([mod, "control"], "r", restart),
 
     # terminal
-    ([mod], "Return", lazy.spawn(cfg.term)),
-    ([mod, "shift"], "Return", lazy.spawn(cfg.term2)),
+    ([mod], "Return", lazy.spawn(cfg.term["main"])),
+    ([mod, "shift"], "Return", lazy.spawn(cfg.term["alt"])),
 
     # app launcher
     ([mod, "shift"], "r", lazy.spawn("rofi -show window")),

@@ -16,6 +16,7 @@ layouts = [
         min_ratio=0.30,
         max_ratio=0.70,
     ),
+    layout.MonadWide(**config),
     layout.Max(**config),
 ]
 

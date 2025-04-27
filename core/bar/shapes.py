@@ -49,6 +49,7 @@ groups = lambda bg: GroupBox(
         palette.amber,
         palette.green,
     ],
+    disable_drag=True,
     highlight_color=palette.base,
     highlight_method="line",
     inactive=palette.grey,

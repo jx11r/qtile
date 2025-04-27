@@ -27,10 +27,10 @@
 - pacman-contrib
 - pamixer
 - playerctl (optional)
-- python-dbus-next
+- python-dbus-fast
 - python-psutil
-- qtile-extras (AUR)
 - qtile
+- qtile-extras (AUR)
 - ttf-nerd-fonts-symbols-mono
 
 ## System Specifications

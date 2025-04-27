@@ -41,6 +41,7 @@ class GruvboxMaterial:
     red    = "#ea6962"
     orange = "#e78a4e"
     yellow = "#d8a657"
+    amber  = "#d79921"
     green  = "#a9b665"
     aqua   = "#89b482"
     blue   = "#7daea3"

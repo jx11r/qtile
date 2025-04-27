@@ -1,7 +1,7 @@
 <div align="center">
   <h1>Qtile</h1>
   <a href="https://github.com/qtile/qtile">
-    <img src="https://img.shields.io/badge/qtile-0.30.0-informational.svg?style=for-the-badge&logo=python&color=7daea3&logoColor=ddc7a1&labelColor=282828" />
+    <img src="https://img.shields.io/badge/qtile-0.31.0-informational.svg?style=for-the-badge&logo=python&color=7daea3&logoColor=ddc7a1&labelColor=282828" />
   </a>
   <a href="#Qtile">
     <img src="https://img.shields.io/github/repo-size/jx11r/qtile?style=for-the-badge&logo=gitbook&color=d8a657&logoColor=ddc7a1&labelColor=282828" />
@@ -32,6 +32,11 @@
 - qtile-extras (AUR)
 - qtile
 - ttf-nerd-fonts-symbols-mono
+
+## System Specifications
+- **OS:** Arch Linux
+- **Layout:** Colemak
+- **Resolution:** 1920x1080
 
 <p align="center">
   <a href="https://github.com/jx11r/qtile/blob/main/LICENSE">

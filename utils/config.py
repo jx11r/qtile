@@ -7,6 +7,7 @@ from os.path import exists, expanduser, join
 @dataclass
 class Config:
     browser: str = "brave"
+    file_manager: str = ""
     wallpaper: str = ""
     bar: dict = field(default_factory=lambda: {"screen1": "shapes", "screen2": ""})
     term: dict = field(default_factory=lambda: {"main": "", "alt": ""})

@@ -5,11 +5,12 @@ from libqtile.utils import guess_terminal
 from extras import float_to_front
 from utils.config import cfg
 
+ctl = "control"
 if cfg.is_xephyr:
-    mod, alt = "mod1", "control"
+    mod = "mod1"
     restart = lazy.restart()
 else:
-    mod, alt = "mod4", "mod1"
+    mod = "mod4"
     restart = lazy.reload_config()
 
 if not cfg.term["main"]:
@@ -39,17 +40,17 @@ keys = [Key(*key) for key in [  # type: ignore
     ([], "F11", lazy.window.toggle_fullscreen()),
 
     # floating window management
+    ([mod, ctl], "f", lazy.function(float_to_front)),
     ([mod], "space", lazy.window.toggle_floating()),
-    ([mod], "s", lazy.function(float_to_front)),
     ([mod], "c", lazy.window.center()),
 
     # toggle between layouts
     ([mod], "Tab", lazy.next_layout()),
 
     # qtile stuff
-    ([mod, "control"], "b", lazy.hide_show_bar()),
-    ([mod, "control"], "s", lazy.shutdown()),
-    ([mod, "control"], "r", restart),
+    ([mod, ctl], "b", lazy.hide_show_bar()),
+    ([mod, ctl], "s", lazy.shutdown()),
+    ([mod, ctl], "r", restart),
 
     # terminal
     ([mod], "Return", lazy.spawn(cfg.term["main"])),
@@ -61,6 +62,9 @@ keys = [Key(*key) for key in [  # type: ignore
 
     # web browser
     ([mod], "b", lazy.spawn(cfg.browser)),
+
+    # file manager
+    ([mod], "t", lazy.spawn(cfg.file_manager)),
 
     # screenshot tool
     ([], "Print", lazy.spawn("gnome-screenshot -i")),

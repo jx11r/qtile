@@ -47,7 +47,7 @@ keys = [Key(*key) for key in [  # type: ignore
     # toggle between layouts
     ([mod], "Tab", lazy.next_layout()),
 
-    # qtile stuff
+    # qtile management
     ([mod, ctl], "b", lazy.hide_show_bar()),
     ([mod, ctl], "s", lazy.shutdown()),
     ([mod, ctl], "r", restart),
@@ -56,18 +56,12 @@ keys = [Key(*key) for key in [  # type: ignore
     ([mod], "Return", lazy.spawn(cfg.term["main"])),
     ([mod, "shift"], "Return", lazy.spawn(cfg.term["alt"])),
 
-    # app launcher
-    ([mod, "shift"], "r", lazy.spawn("rofi -show window")),
-    ([mod], "r", lazy.spawn("rofi -show drun")),
-
-    # web browser
+    # apps/tools
     ([mod], "b", lazy.spawn(cfg.browser)),
-
-    # file manager
     ([mod], "t", lazy.spawn(cfg.file_manager)),
-
-    # screenshot tool
-    ([], "Print", lazy.spawn("gnome-screenshot -i")),
+    ([], "Print", lazy.spawn(cfg.ss_tool)),
+    ([mod], "r", lazy.spawn(cfg.launcher["mod"])),
+    ([mod, "shift"], "r", lazy.spawn(cfg.launcher["shift"])),
 
     # backlight
     ([mod], "XF86AudioLowerVolume", lazy.spawn("brightnessctl set 5%-")),
@@ -78,7 +72,7 @@ keys = [Key(*key) for key in [  # type: ignore
     ([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
     ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
 
-    # player
+    # player control
     ([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     ([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     ([], "XF86AudioNext", lazy.spawn("playerctl next")),

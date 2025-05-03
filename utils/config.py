@@ -7,9 +7,16 @@ from os.path import exists, expanduser, join
 @dataclass
 class Config:
     browser: str = "brave"
-    file_manager: str = ""
+    file_manager: str = "thunar"
+    ss_tool: str = "flameshot gui"
     wallpaper: str = ""
     bar: dict = field(default_factory=lambda: {"screen1": "shapes", "screen2": ""})
+    launcher: dict = field(
+        default_factory=lambda: {
+            "mod": "rofi -show drun",
+            "shift": "rofi -show window",
+        }
+    )
     term: dict = field(default_factory=lambda: {"main": "", "alt": ""})
 
     @property

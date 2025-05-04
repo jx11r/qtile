@@ -59,13 +59,13 @@ keys = [Key(*key) for key in [  # type: ignore
     # apps/tools
     ([mod], "b", lazy.spawn(cfg.browser)),
     ([mod], "t", lazy.spawn(cfg.file_manager)),
-    ([], "Print", lazy.spawn(cfg.ss_tool)),
     ([mod], "r", lazy.spawn(cfg.launcher["mod"])),
     ([mod, "shift"], "r", lazy.spawn(cfg.launcher["shift"])),
+    ([], "Print", lazy.spawn(cfg.ss_tool)),
 
     # backlight
-    ([mod], "XF86AudioLowerVolume", lazy.spawn("brightnessctl set 5%-")),
-    ([mod], "XF86AudioRaiseVolume", lazy.spawn("brightnessctl set +5%")),
+    ([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 5%-")),
+    ([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +5%")),
 
     # volume
     ([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),

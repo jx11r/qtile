@@ -36,7 +36,7 @@ logo = lambda bg, fg: TextBox(
 )
 
 groups = lambda bg: GroupBox(
-    **symbol(),
+    **symbol(13),
     background=bg,
     borderwidth=1,
     colors=[
@@ -54,7 +54,7 @@ groups = lambda bg: GroupBox(
     highlight_method="line",
     inactive=palette.grey,
     invert=True,
-    padding=6,
+    padding=7,
     rainbow=True,
 )
 

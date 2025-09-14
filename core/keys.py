@@ -69,8 +69,8 @@ keys = [Key(*key) for key in [  # type: ignore
 
     # volume
     ([], "XF86AudioMute", lazy.spawn("pamixer --toggle-mute")),
-    ([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5")),
-    ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5")),
+    ([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 3")),
+    ([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 3")),
 
     # player control
     ([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),

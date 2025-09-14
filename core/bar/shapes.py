@@ -77,8 +77,8 @@ volume = lambda bg, fg: [
         get_volume_command="pamixer --get-volume-human",
         mute_command="pamixer --toggle-mute",
         update_interval=0.1,
-        volume_down_command="pamixer --decrease 5",
-        volume_up_command="pamixer --increase 5",
+        volume_down_command="pamixer --decrease 3",
+        volume_up_command="pamixer --increase 3",
     ),
 ]
 

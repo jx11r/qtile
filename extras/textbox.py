@@ -34,26 +34,8 @@ class _TextBox(base._TextBox):
         if not self.can_draw():
             return
         self.drawer.clear(self.background or self.bar.background)
-
-        # size = self.bar.height if self.bar.horizontal else self.bar.width
         self.drawer.ctx.save()
-
-        if not self.bar.horizontal and self.rotate:
-            # Left bar reads bottom to top
-            # Can be overriden to read bottom to top all the time with vertical_text_direction
-            if (
-                self.bar.screen.left is self.bar and self.direction == "default"
-            ) or self.direction == "btt":
-                self.drawer.ctx.rotate(-90 * math.pi / 180.0)
-                self.drawer.ctx.translate(-self.length, 0)
-
-            # Right bar is top to bottom
-            # Can be overriden to read top to bottom all the time with vertical_text_direction
-            elif (
-                self.bar.screen.right is self.bar and self.direction == "default"
-            ) or self.direction == "ttb":
-                self.drawer.ctx.translate(self.bar.width, 0)
-                self.drawer.ctx.rotate(90 * math.pi / 180.0)
+        self.rotate_drawer()
 
         # If we're scrolling, we clip the context to the scroll width less the padding
         # Move the text layout position (and we only see the clipped portion)
@@ -80,12 +62,7 @@ class _TextBox(base._TextBox):
         )
         self.drawer.ctx.restore()
 
-        self.drawer.draw(
-            offsetx=self.offsetx,
-            offsety=self.offsety,
-            width=self.width,
-            height=self.height,
-        )
+        self.draw_at_default_position()
 
         # We only want to scroll if:
         # - User has asked us to scroll and the scroll width is smaller than the layout (should_scroll=True)

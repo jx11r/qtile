@@ -55,8 +55,6 @@ class GroupBox(groupbox.GroupBox):
         inverted=False,
     ):
         self.layout.text = self.fmt.format(text)
-        self.layout.font_family = self.font
-        self.layout.font_size = self.fontsize
         self.layout.colour = textcolor
         if width is not None:
             self.layout.width = width
@@ -105,10 +103,10 @@ class GroupBox(groupbox.GroupBox):
 
         offset = self.margin_x
         for i, g in enumerate(self.groups):
+            to_highlight = False
             is_block = self.highlight_method == "block"
             is_line = self.highlight_method == "line"
             is_icon = self.highlight_method == "icon"
-            to_highlight = False
 
             bw = self.box_width([g])
 
@@ -188,4 +186,4 @@ class GroupBox(groupbox.GroupBox):
                 inverted=self.invert,
             )
             offset += bw + self.spacing
-        self.drawer.draw(offsetx=self.offset, offsety=self.offsety, width=self.width)
+        self.draw_at_default_position()

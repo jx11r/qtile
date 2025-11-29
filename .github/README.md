@@ -17,9 +17,8 @@
   <img src="https://raw.githubusercontent.com/jx11r/src/assets/screenshots/qtile.png" />
 </div>
 
-> [!WARNING]
-> This configuration is adapted to my personal needs, so it is not recommended to use it directly.
-> I suggest forking the repository and modifying it according to your preferences.
+> [!CAUTION]
+> I no longer use Qtile, so consider this configuration as a reference, as it may break in future updates.
 
 ## Requirements
 - brightnessctl (optional)
